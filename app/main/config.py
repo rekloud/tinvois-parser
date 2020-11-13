@@ -1,0 +1,2 @@
+
+LOGGING_LEVEL = 'DEBUG'

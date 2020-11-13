@@ -1,0 +1,2 @@
+google-cloud-vision==2.0.0
+pandas==1.1.4
