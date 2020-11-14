@@ -20,8 +20,14 @@ markets:
      - rewe
   Real:
      - real
+  Kaufland:
+    - kaufland
   Netto:
      - netto-online
+  Rossmann:
+    - rossmann
+  DM:
+    - dm-drogerie
   Kaiser's:
      - kaiser
      - kaiserswerther straße 270
@@ -38,14 +44,27 @@ markets:
      - kodi
   Getraenke:
     - Getraenke Tempel
-  Tanken:
+  Tankstelle:
      - shell
      - esso station
      - aral
      - total tankstelle
      - RK Tankstellen
+     - tankstelle
+  IKEA:
+    - ikea
   Migros:
      - genossenschaft migros
+  Apotheke:
+    - apotheke
+  Galeria Karstadt Kaufhoff:
+    - karstadt
+  Baushaus:
+    - bauhauh
+  Hornbach:
+    - hornbach
+  Hardeck:
+    hardeck
 
 # Sum keys roughly ordered by likelyhood.
 sum_keys:
@@ -61,9 +80,13 @@ sum_keys:
 
 brutto_keys:
   - brutoo
+  - total
 
 netto_keys:
   - netto
+
+steure_keys:
+  - steuer
 
 sum_format: '\d+(\.\s?|,\s?|[^a-zA-Z\d])\d{2}'
 
