@@ -1,3 +1,4 @@
+from uuid import uuid4
 from .base import _Receipt
 from .sum_parser import parse_sum
 from .date_parser import parse_date
@@ -10,6 +11,20 @@ logger = get_logger(__file__)
 
 
 class Receipt(_Receipt):
+
+    def parse_all(self) -> dict:
+        return dict(
+            amount=self.get_sum(),
+            amountexvat=self.get_netto(),
+            brutto=self.get_brutto(),
+            merchant_name=self.get_merchant(),
+            issuedate=self.get_date(),
+            hash=self.get_image_hash()
+        )
+
+    def get_image_hash(self):
+        # TODO do real image hashing
+        return str(uuid4())
 
     def get_date(self):
         return parse_date(self)
