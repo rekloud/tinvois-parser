@@ -2,7 +2,6 @@ from ..utils import get_logger
 from .base import _Receipt
 from .utils import get_close_matches_indexes
 
-
 logger = get_logger(__file__)
 
 
@@ -19,7 +18,7 @@ def _get_df_netto_brutto_table(receipt: _Receipt, keys):
     word_height = row['3y'] - row['2y']
     word_length = row['2x'] - row['1x']
     df_below = receipt.df_values[(receipt.df_values['3y'] - row['3y'])
-        .between(0, word_height * 4)].copy()
+                                 .between(0, word_height * 4)].copy()
     df = df_below[((df_below['3x'] - row['3x']).abs()
                    < word_length / 3)
                   & ((df_below['1x'] - row['1x']).abs()
