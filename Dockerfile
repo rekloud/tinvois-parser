@@ -13,4 +13,5 @@ COPY --chown=taxapp app .
 RUN pip install -r ./requirements.txt
 
 USER taxapp
-CMD [ "python3", "./manage.py"]
+CMD [ "set", "GOOGLE_APPLICATION_CREDENTIALS=${HOME}/google_atuh/google_auth.json" , "|"
+      , "python3", "./manage.py"]
