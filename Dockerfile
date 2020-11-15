@@ -7,7 +7,7 @@ RUN useradd -ms /bin/bash taxapp && \
 
 RUN apt-get update &&\
     mkdir ${HOME}/google_auth &&\
-    set GOOGLE_APPLICATION_CREDENTIALS=${HOME}/google_atuh
+    set GOOGLE_APPLICATION_CREDENTIALS=${HOME}/google_atuh/google_auth.json
 
 COPY --chown=taxapp app .
 RUN pip install -r ./requirements.txt
