@@ -18,7 +18,7 @@ class Receipt(_Receipt):
             amountexvat=self.get_netto(),
             brutto=self.get_brutto(),
             merchant_name=self.get_merchant(),
-            issuedate=self.get_date(),
+            date=self.get_date(),
             hash=get_image_hash(self.image_content)
         )
 

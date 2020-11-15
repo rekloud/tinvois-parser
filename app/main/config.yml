@@ -57,6 +57,9 @@ markets:
      - genossenschaft migros
   Apotheke:
     - apotheke
+  Parkhaus:
+    - parkhaus
+    - parken
   Galeria Karstadt Kaufhoff:
     - karstadt
   Baushaus:
@@ -77,6 +80,7 @@ sum_keys:
   - zwischensumme
   - bar
   - te betalen
+  - betrag
 
 brutto_keys:
   - brutoo

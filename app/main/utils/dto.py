@@ -12,8 +12,12 @@ authorizations = {
 class ParseDto:
     api = Namespace('parse', description='parse invoice',
                     authorizations=authorizations)
+    image = api.model('image',
+                         {'image': fields.String(required=True,
+                                                 description='base64 encode content of the image')
+                          })
     response = api.model('parse_response',
-                         {'message': fields.String(required=True,
-                                                   description='json with parse results')})
+                         {'data': fields.Raw(required=True,
+                                                description='json with parse results')})
     headers = api.parser(). \
         add_argument('Authorization', location='headers', help='server to server token')
