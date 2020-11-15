@@ -1,2 +1,6 @@
-./main/.env
-./google_auth/*.*
+.idea/
+app/__pycache__/
+app/main/__pycache__/
+*.pyc
+app/google_auth/
+app/main/.env
