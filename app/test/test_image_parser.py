@@ -16,4 +16,4 @@ class TestImageParser(BaseTestCase):
     # TODO finish it using here https://flask.palletsprojects.com/en/1.1.x/testing/#the-first-test
     def test_image_3(self):
         # result = self.app.parse.
-        pass
+        passra
