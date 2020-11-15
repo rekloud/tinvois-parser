@@ -1,1 +1,2 @@
 ./main/.env
+./google_auth/*.*
