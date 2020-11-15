@@ -1,6 +1,7 @@
 from google.cloud import vision
 import numpy as np
 import pandas as pd
+from flask_restplus import abort
 from ..utils.log import get_logger
 
 client = vision.ImageAnnotatorClient()
@@ -24,7 +25,7 @@ def ocr_image(image_content):
     if len(df_text) == 0:
         msg = 'Image contains no text'
         logger.warning(msg)
-        raise ValueError(msg)
+        abort(400, msg)
     if response.error.message:
         logger.warning('parser failed')
         raise Exception(

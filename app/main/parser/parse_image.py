@@ -19,12 +19,8 @@ class Receipt(_Receipt):
             brutto=self.get_brutto(),
             merchant_name=self.get_merchant(),
             issuedate=self.get_date(),
-            hash=self.get_image_hash()
+            hash=get_image_hash(self.image_content)
         )
-
-    def get_image_hash(self):
-        # TODO do real image hashing
-        return str(uuid4())
 
     def get_date(self):
         return parse_date(self)
@@ -40,3 +36,8 @@ class Receipt(_Receipt):
 
     def get_brutto(self):
         return parse_brutto(self)
+
+
+def get_image_hash(image_content):
+    # TODO do real image hashing
+    return str(uuid4())

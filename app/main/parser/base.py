@@ -10,6 +10,7 @@ class _Receipt:
     def __init__(self, image_content, cutoff=.8):
         self.config = read_config()
         # TODO rotate if the image is horizontal
+        self.image_content = image_content
         self.df_ocr = pre_process_ocr_results(ocr_image(image_content))
         self.image_x_range = self.df_ocr['2x'].max() - self.df_ocr['1x'].min()
         self.image_y_range = self.df_ocr['3y'].max() - self.df_ocr['1y'].min()
