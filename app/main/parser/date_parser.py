@@ -21,7 +21,7 @@ def regex_date_parser(receipt: _Receipt) -> str or None:
         if match:
             try:
                 date_str = match.group(0)
-                logger.debug(date_str)
+                logger.debug(f'date_str: {date_str}')
                 date_str = date_str.replace(" ", "")
                 return dateutil.parser.parse(date_str, dayfirst=True).isoformat()
             except Exception as e:

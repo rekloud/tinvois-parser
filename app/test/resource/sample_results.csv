@@ -10,3 +10,4 @@ file,result
 .\resource/sample_receipts\kaufland_vertical.jpg,"{""data"": {""amount"": 5900, ""amountexvat"": 926, ""brutto"": 1074, ""merchant_name"": ""Kaufland"", ""date"": ""2006-10-11T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\rossmann.jpg,"{""data"": {""amount"": 274, ""amountexvat"": 261, ""brutto"": null, ""merchant_name"": ""Rossmann"", ""date"": ""2020-11-11T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\tank-OIL.jpg,"{""data"": {""amount"": 2020, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Tankstelle"", ""date"": ""2020-10-10T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\kuzey.jpg,"{""data"": {""amount"": 3791, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Kuzey"", ""date"": ""2020-11-13T00:00:00"", ""hash"": ""a_hash""}}"
