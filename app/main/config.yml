@@ -62,12 +62,14 @@ markets:
     - parken
   Galeria Karstadt Kaufhoff:
     - karstadt
+  H&M:
+    - h&m
   Baushaus:
     - bauhauh
   Hornbach:
     - hornbach
   Hardeck:
-    hardeck
+    - hardeck
 
 # Sum keys roughly ordered by likelyhood.
 sum_keys:
@@ -85,12 +87,26 @@ sum_keys:
 brutto_keys:
   - brutoo
   - total
+  - gesamt
+  - bruttoumsatz
 
 netto_keys:
   - netto
+  - nettobetrag
+  - nettoumsatz
 
 steure_keys:
   - steuer
+  - mwst
+
+paymentmethods:
+  Cash:
+    - bar
+  EC:
+    - girocard
+    - lastschrift
+    - ec
+
 
 sum_format: '\d+(\.\s?|,\s?|[^a-zA-Z\d])\d{2}'
 

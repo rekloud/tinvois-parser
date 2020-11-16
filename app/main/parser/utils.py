@@ -14,18 +14,6 @@ def read_config(config=PARSER_CONFIG_FILE):
             print(e)
 
 
-def pre_process_ocr_results(df_ocr_raw: pd.DataFrame):
-    df_ocr = df_ocr_raw.copy()
-    df_ocr.sort_values('1y', inplace=True)
-    df_ocr['text'] = df_ocr['text'].str.lower()
-    df_ocr['text2'] = (df_ocr['text'].str.replace(',', '')
-                       .str.replace('.', '')
-                       .str.replace('€', '')
-                       )
-    df_ocr['is_numeric'] = df_ocr['text2'].str.isdigit()
-    return df_ocr
-
-
 def get_close_matches_indexes(word, possibilities, n=3, cutoff=0.6):
     """Use SequenceMatcher to return a list of the indexes of the best
     "good enough" matches. word is a sequence for which close matches

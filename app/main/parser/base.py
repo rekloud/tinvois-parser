@@ -1,6 +1,7 @@
 import pandas as pd
 from .ocr import ocr_image
-from .utils import read_config, get_close_matches_indexes, pre_process_ocr_results
+from .utils import read_config, get_close_matches_indexes
+from .preprocessing import pre_process_ocr_results
 from ..utils import get_logger
 
 logger = get_logger(__file__)
