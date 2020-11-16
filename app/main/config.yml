@@ -97,5 +97,5 @@ sum_format: '\d+(\.\s?|,\s?|[^a-zA-Z\d])\d{2}'
 # Matches dates like 19.08.15 and 19. 08. 2015
 #date_format: '(?P<date>(\d{2,4}(\.\s?|[^a-zA-Z\d])\d{2}(\.\s?|[^a-zA-Z\d])(19|20)?\d\d)\s+)'
 #date_format: '(?:\d{1,2}[-/th|st|nd|rd|dot\s]*)?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|d{1,2})?[a-z\s,.]*(?:\d{1,2}[-/th|st|nd|rd|dot)\s,]*)+(?:\d{2,4})+'
-date_format: '(?:\d{1,4})[\.-]\s?(?:\d{1,2})*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|okt|juni|juli|mai)?[a-z\s,.]*[\.-]\s?(?:\d{1,4})+'
+date_format: '(?:\d{1,4})[/\.-]\s?(?:\d{1,2})*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|okt|juni|juli|mai)?[a-z\s,.]*[/\.-]\s?(?:\d{1,4})+'
 

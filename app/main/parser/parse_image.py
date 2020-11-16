@@ -19,7 +19,8 @@ class Receipt(_Receipt):
             brutto=self.get_brutto(),
             merchant_name=self.get_merchant(),
             date=self.get_date(),
-            hash=get_image_hash(self.image_content)
+            hash=get_image_hash(self.image_content),
+            raw_text=self.df_ocr_raw.to_json(orient='index')
         )
 
     def get_date(self):

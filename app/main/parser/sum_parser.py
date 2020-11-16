@@ -10,6 +10,7 @@ def parse_sum(receipt: _Receipt) -> int:
     for sum_parser in sum_parsers:
         sum_value = sum_parser(receipt)
         if sum_value is not None:
+            receipt.sum = sum_value
             return sum_value
     logger.warning('could not parse sum')
 

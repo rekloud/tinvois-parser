@@ -19,6 +19,11 @@ def regex_date_parser(receipt: _Receipt) -> str or None:
     for row in receipt.df_ocr.iloc[1:, :].itertuples():
         match = re.match(receipt.config['date_format'], row.text)
         if match:
-            date_str = match.group(0)
-            date_str = date_str.replace(" ", "")
-            return dateutil.parser.parse(date_str, dayfirst=True).isoformat()
+            try:
+                date_str = match.group(0)
+                logger.debug(date_str)
+                date_str = date_str.replace(" ", "")
+                return dateutil.parser.parse(date_str, dayfirst=True).isoformat()
+            except Exception as e:
+                logger.warning(f'Failed to parse a date {str(e)}')
+                continue

@@ -1,6 +1,7 @@
 import base64
 import io
 import json
+import os
 import unittest
 import werkzeug
 
@@ -17,6 +18,8 @@ class TestParser(unittest.TestCase):
         mock_hash.return_value = 'a_hash'
         for i, image, expected in expected_results.itertuples():
             actual, code = parse_image(get_image_content(image))
+            actual['data'].pop('raw_text')
+            print(os.path.split(image)[1])
             print('actual', json.dumps(actual))
             print('expected', expected)
             assert json.dumps(actual) == expected
