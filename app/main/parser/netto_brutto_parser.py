@@ -1,3 +1,4 @@
+from ..config import MAX_ROWS_OF_TAX_TABLE
 from ..utils import get_logger
 from .base import _Receipt
 from .utils import get_close_matches_indexes
@@ -23,4 +24,4 @@ def _get_df_netto_brutto_table(receipt: _Receipt, keys):
                    < word_length / 3)
                   & ((df_below['1x'] - row['1x']).abs()
                      < receipt.image_x_range / 10)]
-    return df
+    return df.head(MAX_ROWS_OF_TAX_TABLE)

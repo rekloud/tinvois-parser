@@ -14,3 +14,6 @@ SERVER_TO_SERVER_TOKEN = os.environ.get('SERVER_TO_SERVER_TOKEN')
 PARSER_CONFIG_FILE = os.path.join(
     os.path.split(__file__)[0], 'config.yml'
 )
+
+
+MAX_ROWS_OF_TAX_TABLE = 2

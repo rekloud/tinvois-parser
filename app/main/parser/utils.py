@@ -48,7 +48,6 @@ def get_close_matches_indexes(word, possibilities, n=3, cutoff=0.6):
             result.append((s.ratio(), idx))
 
     # Move the best scorers to head of list
-    result = result[::-1]
     result = _nlargest(n, result)
 
     # Strip scores for the best n matches

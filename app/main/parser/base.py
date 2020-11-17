@@ -1,3 +1,4 @@
+from typing import List
 import pandas as pd
 from .ocr import ocr_image
 from .utils import read_config, get_close_matches_indexes
@@ -23,10 +24,10 @@ class _Receipt:
         self.netto_amount = 0
 
 
-def find_value_in_front(receipt: _Receipt, keys):
+def find_value_in_front(receipt: _Receipt, keys: List[int]) -> int or None:
     matches = None
     for sum_ky in keys:
-        matches = get_close_matches_indexes(sum_ky, receipt.df_ocr['text'],
+        matches = get_close_matches_indexes(sum_ky, receipt.df_ocr['text'].values,
                                             n=1, cutoff=receipt.cutoff)
         if matches:
             break
@@ -35,6 +36,6 @@ def find_value_in_front(receipt: _Receipt, keys):
     row = receipt.df_ocr.iloc[matches, :]
 
     row_with_value = pd.merge_asof(row,
-                                       receipt.df_values.sort_values('3y'),
-                                       on='3y', direction='nearest', suffixes=('', '_value'))
+                                   receipt.df_values.sort_values('3y'),
+                                   on='3y', direction='nearest', suffixes=('', '_value'))
     return int(row_with_value['text2_value'].iloc[0])
