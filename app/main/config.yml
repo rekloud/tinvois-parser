@@ -80,10 +80,9 @@ sum_keys:
   - total
   - sum
   - zwischensumme
-  - bar
-  - te betalen
-  - betrag
   - kaufsumme
+  - betrag
+  - te betalen
 
 brutto_keys:
   - brutoo

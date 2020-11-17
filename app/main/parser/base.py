@@ -34,6 +34,7 @@ def find_value_in_front(receipt: _Receipt, keys: List[int]) -> int or None:
     if not matches:
         return None
     row = receipt.df_ocr.iloc[matches, :]
+    logger.debug(f'value in front based on text: {row["text"].iloc[0]}')
 
     row_with_value = pd.merge_asof(row,
                                    receipt.df_values.sort_values('3y'),
