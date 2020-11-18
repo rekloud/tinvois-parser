@@ -14,6 +14,7 @@ class Receipt(_Receipt):
 
     def parse_all(self) -> dict:
         return dict(
+            rotation=self.rotation,
             amount=self.get_sum(),
             amountexvat=self.get_netto(),
             brutto=self.get_brutto(),
