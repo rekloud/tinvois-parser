@@ -34,9 +34,16 @@ def find_value_in_front(receipt: _Receipt, keys: List[int]) -> int or None:
     if not matches:
         return None
     row = receipt.df_ocr.iloc[matches, :]
+    assert len(row) == 1, 'only one row is accepted'
     logger.debug(f'value in front based on text: {row["text"].iloc[0]}')
-
-    row_with_value = pd.merge_asof(row,
-                                   receipt.df_values.sort_values('3y'),
-                                   on='3y', direction='nearest', suffixes=('', '_value'))
-    return int(row_with_value['text2_value'].iloc[0])
+    word_height = (row['3y'] - row['2y']).mean()
+    close_numbers = receipt.df_values[(receipt.df_values['3y'] -
+                                       row['3y'].iloc[0]).abs() <= (word_height * 2)].copy()
+    close_numbers['distance'] = (close_numbers['3y'] - row['3y'].iloc[0]).abs()
+    values_in_front = close_numbers.sort_values('distance').head(1)
+    if len(values_in_front) > 0:
+        try:
+            return int(values_in_front['text2'].iloc[0])
+        except ValueError as e:
+            logger.debug(f'{str(e)}')
+            return None

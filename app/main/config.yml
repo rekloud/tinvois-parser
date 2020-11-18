@@ -42,8 +42,6 @@ markets:
      - drogerie
   Kodi:
      - kodi
-  Getraenke:
-    - Getraenke Tempel
   Tankstelle:
      - shell
      - esso station

@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def pre_process_ocr_results(df_ocr_raw: pd.DataFrame):
+def pre_process_ocr_results(df_ocr_raw: pd.DataFrame) -> pd.DataFrame:
     df_ocr = df_ocr_raw.copy()
     df_ocr.sort_values('1y', inplace=True)
     df_ocr['text'] = df_ocr['text'].str.lower()
