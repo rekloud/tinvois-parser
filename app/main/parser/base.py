@@ -24,26 +24,33 @@ class _Receipt:
         self.netto_amount = 0
 
 
-def find_value_in_front(receipt: _Receipt, keys: List[int]) -> int or None:
-    matches = None
+def find_value_in_front(receipt: _Receipt, keys: List[int]) -> (int or None, int):
+    return find_one_value_in_front(receipt.df_ocr, receipt.df_values, keys, receipt.cutoff)
+
+
+def find_one_value_in_front(df_ocr: pd.DataFrame, df_values: pd.DataFrame,
+                            keys: List[int], cutoff: float) -> (int or None, int):
+    match = None
     for sum_ky in keys:
-        matches = get_close_matches_indexes(sum_ky, receipt.df_ocr['text'].values,
-                                            n=1, cutoff=receipt.cutoff)
-        if matches:
+        match = get_close_matches_indexes(sum_ky, df_ocr['text'].values,
+                                          n=1, cutoff=cutoff)
+        if match:
             break
-    if not matches:
-        return None
-    row = receipt.df_ocr.iloc[matches, :]
+    if not match:
+        return None, match
+    row = df_ocr.iloc[match, :]
     assert len(row) == 1, 'only one row is accepted'
     logger.debug(f'value in front based on text: {row["text"].iloc[0]}')
     word_height = (row['3y'] - row['2y']).mean()
-    close_numbers = receipt.df_values[(receipt.df_values['3y'] -
-                                       row['3y'].iloc[0]).abs() <= (word_height * 2)].copy()
-    close_numbers['distance'] = (close_numbers['3y'] - row['3y'].iloc[0]).abs()
-    values_in_front = close_numbers.sort_values('distance').head(1)
-    if len(values_in_front) > 0:
+    close_numbers = df_values[(df_values['3y'] -
+                               row['3y'].iloc[0]).abs() <= (word_height * 1.2)].copy()
+    close_numbers['distance_y'] = (close_numbers['3y'] - row['3y'].iloc[0]).abs()
+    close_numbers['distance_x'] = (close_numbers['3x'] - row['3x'].iloc[0]).abs()
+    value_in_front = close_numbers.sort_values(['distance_y', 'distance_x']).head(1)
+    if len(value_in_front) > 0:
         try:
-            return int(values_in_front['text2'].iloc[0])
+            return int(value_in_front['text2'].iloc[0]), match
         except ValueError as e:
             logger.debug(f'{str(e)}')
-            return None
+            return None, match
+    return None, match

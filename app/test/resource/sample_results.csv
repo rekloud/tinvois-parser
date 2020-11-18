@@ -1,6 +1,5 @@
 file,result
-.\resource/sample_receipts\1-2.jpeg,"{""data"": {""amount"": 7774, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Baushaus"", ""date"": ""2020-04-21T00:00:00"", ""hash"": ""a_hash""}}"
-.\resource/sample_receipts\1.jpeg,"{""data"": {""amount"": 7774, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Baushaus"", ""date"": ""2020-04-21T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\1.jpeg,"{""data"": {""amount"": 7774, ""amountexvat"": 6570, ""brutto"": null, ""merchant_name"": ""Baushaus"", ""date"": ""2020-04-21T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\2.jpeg,"{""data"": {""amount"": 14271, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Galeria Karstadt Kaufhoff"", ""date"": null, ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\3.jpeg,"{""data"": {""amount"": 8094, ""amountexvat"": 6802, ""brutto"": 8094, ""merchant_name"": ""IKEA"", ""date"": ""2020-06-29T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\fileName.jpg,"{""data"": {""amount"": 1430, ""amountexvat"": 1202, ""brutto"": 1430, ""merchant_name"": ""Apotheke"", ""date"": ""2020-03-09T00:00:00"", ""hash"": ""a_hash""}}"
@@ -9,5 +8,7 @@ file,result
 .\resource/sample_receipts\kaufland_horiz.jpg,"{""data"": {""amount"": null, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Kaufland"", ""date"": ""2020-11-14T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\kaufland_vertical.jpg,"{""data"": {""amount"": 5900, ""amountexvat"": 926, ""brutto"": 1074, ""merchant_name"": ""Kaufland"", ""date"": ""2006-10-11T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\rossmann.jpg,"{""data"": {""amount"": 274, ""amountexvat"": 261, ""brutto"": null, ""merchant_name"": ""Rossmann"", ""date"": ""2020-11-11T00:00:00"", ""hash"": ""a_hash""}}"
-.\resource/sample_receipts\tank-OIL.jpg,"{""data"": {""amount"": 2020, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Tankstelle"", ""date"": ""2020-10-10T00:00:00"", ""hash"": ""a_hash""}}"
-.\resource/sample_receipts\kuzey.jpg,"{""data"": {""amount"": 3791, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Kuzey"", ""date"": ""2020-11-13T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\tank-OIL.jpg,"{""data"": {""amount"": 2020, ""amountexvat"": 1741, ""brutto"": null, ""merchant_name"": ""Tankstelle"", ""date"": ""2020-10-10T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\kuzey.jpg,"{""data"": {""amount"": 3791, ""amountexvat"": 3599, ""brutto"": null, ""merchant_name"": ""Kuzey"", ""date"": ""2020-11-13T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\park.jpg,"{""data"": {""amount"": 250, ""amountexvat"": 210, ""brutto"": null, ""merchant_name"": ""Parkhaus"", ""date"": ""2020-06-18T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\dominos.jpg,"{""data"": {""amount"": 1497, ""amountexvat"": 1426, ""brutto"": null, ""merchant_name"": ""Domino's"", ""date"": ""2020-11-17T00:00:00"", ""hash"": ""a_hash""}}"

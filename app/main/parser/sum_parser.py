@@ -16,7 +16,7 @@ def parse_sum(receipt: _Receipt) -> int:
 
 
 def parse_sum_in_front(receipt: _Receipt):
-    sum_value = find_value_in_front(receipt, receipt.config['sum_keys'])
+    sum_value, _ = find_value_in_front(receipt, receipt.config['sum_keys'])
     if sum_value is None:
         logger.info('could not find sum in front')
     return sum_value
