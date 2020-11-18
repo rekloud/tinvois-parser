@@ -1,3 +1,4 @@
+import base64
 from uuid import uuid4
 from .base import _Receipt
 from .sum_parser import parse_sum
@@ -21,7 +22,7 @@ class Receipt(_Receipt):
             merchant_name=self.get_merchant(),
             date=self.get_date(),
             hash=get_image_hash(self.image_content),
-            raw_text=self.df_ocr_raw.to_json(orient='index')
+            raw_text=base64.b64encode(self.df_ocr_raw.to_json(orient='index').encode()).decode()
         )
 
     def get_date(self):
