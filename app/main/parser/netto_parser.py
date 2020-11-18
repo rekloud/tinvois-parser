@@ -9,7 +9,10 @@ def parse_netto(receipt: _Receipt) -> int:
     for netto_parser in netto_parsers:
         netto_value = netto_parser(receipt)
         if netto_value:
-            if (hasattr(receipt, 'sum')) and (netto_value > receipt.sum):
+            if ((hasattr(receipt, 'sum'))
+                and (netto_value > receipt.sum
+                and ((netto_value / 2) < receipt.sum))
+            ):
                 netto_value = int(netto_value / 2)
             return netto_value
     logger.warning('could not find netto')

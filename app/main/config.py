@@ -9,7 +9,6 @@ google_auth_path = os.path.join(
 )
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = google_auth_path
 basedir = os.path.abspath(os.path.dirname(__file__))
-LOGGING_LEVEL = 'DEBUG'
 SERVER_TO_SERVER_TOKEN = os.environ.get('SERVER_TO_SERVER_TOKEN')
 PARSER_CONFIG_FILE = os.path.join(
     os.path.split(__file__)[0], 'config.yml'
@@ -17,3 +16,5 @@ PARSER_CONFIG_FILE = os.path.join(
 
 
 MAX_ROWS_OF_TAX_TABLE = 2
+
+LOGGING_LEVEL = os.environ.get('LOGGING_LEVEL', 'DEBUG')
