@@ -80,6 +80,7 @@ sum_keys:
   - zwischensumme
   - kaufsumme
   - betrag
+  - endbetrag
   - bar
   - te betalen
 
