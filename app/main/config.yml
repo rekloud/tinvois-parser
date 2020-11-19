@@ -74,13 +74,13 @@ sum_keys:
   - summe
   - gesamtbetrag
   - gesamt
-  - zahlen
   - total
-  - sum
-  - zwischensumme
   - kaufsumme
-  - betrag
   - endbetrag
+  - zahlen
+  - betrag
+  - zwischensumme
+  - sum
   - bar
   - te betalen
 
