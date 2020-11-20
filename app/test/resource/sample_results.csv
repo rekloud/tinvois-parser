@@ -1,5 +1,5 @@
 file,result
-.\resource/sample_receipts\1.jpeg,"{""data"": {""rotation"": 0, ""amount"": 7774, ""amountexvat"": 6570, ""brutto"": null, ""merchant_name"": ""Baushaus"", ""date"": ""2020-04-21T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\1.jpeg,"{""data"": {""rotation"": -4, ""amount"": 7774, ""amountexvat"": 6570, ""brutto"": null, ""merchant_name"": ""Baushaus"", ""date"": ""2020-04-21T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\2.jpeg,"{""data"": {""rotation"": 0, ""amount"": 14271, ""amountexvat"": null, ""brutto"": null, ""merchant_name"": ""Galeria Karstadt Kaufhoff"", ""date"": null, ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\3.jpeg,"{""data"": {""rotation"": 0, ""amount"": 8094, ""amountexvat"": 6802, ""brutto"": 8094, ""merchant_name"": ""IKEA"", ""date"": ""2020-06-29T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\fileName.jpg,"{""data"": {""rotation"": 0, ""amount"": 1430, ""amountexvat"": 1202, ""brutto"": 1430, ""merchant_name"": ""Apotheke"", ""date"": ""2020-03-09T00:00:00"", ""hash"": ""a_hash""}}"

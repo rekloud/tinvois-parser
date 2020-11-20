@@ -7,11 +7,13 @@ def get_rotation(df_ocr: pd.DataFrame) -> int:
     row = df_ocr.assign(length=df_ocr['text'].apply(len)
                         ).sort_values('length', ascending=False
                                       ).select_dtypes(np.number).iloc[1].astype(float)
-    if isclose(row['4x'], row['3x'], rel_tol=.1):
+    word_height_vertical = 1.1 * abs(row['3y'] - row['2y'])
+    word_height_horizontal = 1.1 * abs(row['3x'] - row['2x'])
+    if isclose(row['4x'], row['3x'], abs_tol=word_height_horizontal):
         denominator = 1
     else:
         denominator = row['3x'] - row['4x']
-    if isclose(row['4y'], row['3y'], rel_tol=0.1):
+    if isclose(row['4y'], row['3y'], abs_tol=word_height_vertical):
         if row['2y'] > row['3y']:
             return 180
         else:
