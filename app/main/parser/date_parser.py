@@ -39,7 +39,7 @@ def regex_date_parser_from_full_text(receipt: _Receipt) -> str or None:
                 return parsed_date.isoformat()
             else:
                 continue
-        except ValueError:
+        except:
             pass
         finally:
             logger.debug(f'date_str: {date_str}')

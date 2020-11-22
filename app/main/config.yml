@@ -95,6 +95,8 @@ netto_keys:
   - netto
   - nettobetrag
   - nettoumsatz
+  - netto-entgelt
+  - gesamt
 
 steure_keys:
   - steuer
