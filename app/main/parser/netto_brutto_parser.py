@@ -21,7 +21,7 @@ def _get_df_netto_brutto_table(receipt: _Receipt, keys):
     df_below = receipt.df_values[(receipt.df_values['3y'] - row['3y'])
                                  .between(0, word_height * 4)].copy()
     df = df_below[((df_below['3x'] - row['3x']).abs()
-                   < word_length / 3)
+                   < word_length / 2)
                   & ((df_below['1x'] - row['1x']).abs()
                      < receipt.image_x_range / 10)]
     return df.head(MAX_ROWS_OF_TAX_TABLE)
