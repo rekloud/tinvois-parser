@@ -16,13 +16,23 @@ expected_results = pd.read_csv('./resource/sample_results.csv')
 class TestParser(unittest.TestCase):
     def test_parser_on_sample_images(self, mock_hash):
         mock_hash.return_value = 'a_hash'
+        failed_cases = []
         for i, image, expected in expected_results.itertuples():
             actual, code = parse_image(get_image_content(image))
             actual['data'].pop('raw_text')
-            print(os.path.split(image)[1])
-            print('actual', json.dumps(actual))
-            print('expected', expected)
-            assert json.dumps(actual) == expected
+            actual_str = json.dumps(actual)
+            file_name = os.path.split(image)[1]
+            print(file_name)
+            if actual_str != expected:
+                failed_cases.append((file_name,  actual_str, expected))
+
+        if len(failed_cases) > 0:
+            print(len(failed_cases), 'has been failed')
+            for file_name, _actual, _expected in failed_cases:
+                print(file_name)
+                print('actual  ', _actual)
+                print('expected', _expected)
+            assert False
 
     def test_fail_when_no_text_in_image(self, mock_hash):
         image_with_no_text = './resource/sample_receipts/alaki.jpg'

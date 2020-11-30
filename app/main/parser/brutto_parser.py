@@ -1,11 +1,12 @@
 from ..utils import get_logger
-from .base import _Receipt
+from .base import _Receipt, find_one_value_in_front
 from .netto_parser import _get_df_netto_brutto_table
+
 logger = get_logger(__file__)
 
 
 def parse_brutto(receipt: _Receipt) -> int:
-    brutto_parsers = [parse_brutto_table, parse_brutto_table_with_steuer]
+    brutto_parsers = [parse_brutto_table, parse_brutto_table_with_steuer, parse_brutto_in_front]
     for brutto_parser in brutto_parsers:
         brutto_value = brutto_parser(receipt)
         if brutto_value:
@@ -32,3 +33,15 @@ def parse_brutto_table_with_steuer(self: _Receipt):
     steuer_value = int(df_steuer['text2'].sum())
     return self.netto_amount + steuer_value
 
+
+def parse_brutto_in_front(receipt: _Receipt) -> int:
+    brutto_value = 0
+    df_ocr = receipt.df_ocr.copy()
+    while True:
+        _brutto_value, match_index = find_one_value_in_front(df_ocr, receipt.df_values,
+                                                             receipt.config['brutto_keys'],
+                                                             receipt.cutoff)
+        if _brutto_value is None:
+            return brutto_value if brutto_value > 0 else None
+        df_ocr.drop(df_ocr.index[match_index], inplace=True)
+        brutto_value += _brutto_value

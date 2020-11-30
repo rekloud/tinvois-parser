@@ -44,10 +44,8 @@ markets:
      - kodi
   Tankstelle:
      - shell
-     - esso station
+     - esso
      - aral
-     - total tankstelle
-     - RK Tankstellen
      - tankstelle
   IKEA:
     - ikea
@@ -87,7 +85,7 @@ sum_keys:
 
 brutto_keys:
   - brutoo
-  - total
+#  - total
   - gesamt
   - bruttoumsatz
 
