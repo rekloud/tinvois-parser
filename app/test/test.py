@@ -22,9 +22,12 @@ class TestParser(unittest.TestCase):
             actual['data'].pop('raw_text')
             actual_str = json.dumps(actual)
             file_name = os.path.split(image)[1]
-            print(file_name)
+            print(file_name, end=' ')
             if actual_str != expected:
+                print('FAILED')
                 failed_cases.append((file_name,  actual_str, expected))
+            else:
+                print('succeed')
 
         if len(failed_cases) > 0:
             print(len(failed_cases), 'has been failed')

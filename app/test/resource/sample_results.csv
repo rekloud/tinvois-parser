@@ -1,5 +1,5 @@
 file,result
-.\resource/sample_receipts\1.jpeg,"{""data"": {""rotation"": -4, ""amount"": 7774, ""amountexvat"": 6570, ""brutto"": 399, ""merchant_name"": ""Baushaus"", ""date"": ""2020-04-21T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\1.jpeg,"{""data"": {""rotation"": -4, ""amount"": 1204, ""amountexvat"": 1204, ""brutto"": 14344, ""merchant_name"": ""Baushaus"", ""date"": ""2020-04-21T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\3.jpeg,"{""data"": {""rotation"": 0, ""amount"": 8094, ""amountexvat"": 6802, ""brutto"": 8094, ""merchant_name"": ""IKEA"", ""date"": ""2020-06-29T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\fileName.jpg,"{""data"": {""rotation"": 0, ""amount"": 1430, ""amountexvat"": 1202, ""brutto"": 1430, ""merchant_name"": ""Apotheke"", ""date"": ""2020-03-09T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\fileName90.jpg,"{""data"": {""rotation"": 90, ""amount"": 1430, ""amountexvat"": 1202, ""brutto"": 1430, ""merchant_name"": ""Apotheke"", ""date"": ""2020-03-09T00:00:00"", ""hash"": ""a_hash""}}"
@@ -18,3 +18,5 @@ file,result
 .\resource/sample_receipts\cafe.jpg,"{""data"": {""rotation"": 0, ""amount"": 1510, ""amountexvat"": 1388, ""brutto"": 1433, ""merchant_name"": ""Cafe"", ""date"": ""2020-10-30T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\lidle.jpg,"{""data"": {""rotation"": 0, ""amount"": 7068, ""amountexvat"": 7068, ""brutto"": 7513, ""merchant_name"": ""Lidl"", ""date"": ""2020-11-07T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\post.jpg,"{""data"": {""rotation"": 90, ""amount"": null, ""amountexvat"": 550, ""brutto"": 550, ""merchant_name"": ""Tankstelle"", ""date"": ""2020-11-30T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\penny2.jpg,"{""data"": {""rotation"": -4, ""amount"": 1669, ""amountexvat"": 1590, ""brutto"": 1669, ""merchant_name"": ""Penny"", ""date"": ""2020-11-28T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\penny3.jpg,"{""data"": {""rotation"": 90, ""amount"": 225, ""amountexvat"": 205, ""brutto"": 225, ""merchant_name"": ""Penny"", ""date"": ""2020-12-04T00:00:00"", ""hash"": ""a_hash""}}"
