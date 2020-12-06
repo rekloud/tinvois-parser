@@ -1,10 +1,12 @@
 import base64
 from uuid import uuid4
 from .base import _Receipt
-from .sum_parser import parse_sum
+from .ml_approach.feature_extraction import extract_features_token
+from .ml_approach.classifier import classify
+from .ml_approach.sum_parser import parse_sum
+from .ml_approach.netto_parser import parse_netto
+from .ml_approach.brutto_parser import parse_brutto
 from .date_parser import parse_date
-from .netto_parser import parse_netto
-from .brutto_parser import parse_brutto
 from .merchant_parser import parse_merchant
 from ..utils import get_logger
 
@@ -13,7 +15,12 @@ logger = get_logger(__file__)
 
 class Receipt(_Receipt):
 
+    def fit(self):
+        extract_features_token(self)
+        classify(self)
+
     def parse_all(self) -> dict:
+        self.fit()
         return dict(
             rotation=self.rotation,
             amount=self.get_sum(),

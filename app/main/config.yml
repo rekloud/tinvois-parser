@@ -77,11 +77,11 @@ sum_keys:
   - total
   - endbetrag
   - zahlen
-  - zwischensumme
+#  - zwischensumme
   - betrag
   - sum
   - bar
-  - te betalen
+  - gegeben
 
 brutto_keys:
   - brutoo
