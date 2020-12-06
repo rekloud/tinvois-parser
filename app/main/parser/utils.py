@@ -1,7 +1,6 @@
 import yaml
 from difflib import SequenceMatcher
 from heapq import nlargest as _nlargest
-import pandas as pd
 from ..config import PARSER_CONFIG_FILE
 
 

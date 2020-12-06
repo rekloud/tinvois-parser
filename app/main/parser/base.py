@@ -10,17 +10,16 @@ logger = get_logger(__file__)
 
 class _Receipt:
     def __init__(self, image_content, cutoff=.8):
+        self.cutoff = cutoff
         self.config = read_config()
-        # TODO rotate if the image is horizontal
         self.image_content = image_content
         self.df_ocr_raw = ocr_image(image_content)
         self.rotation = get_rotation(self.df_ocr_raw)
-        self.df_ocr = pre_process_ocr_results(self.df_ocr_raw, -self.rotation)
+        self.df_ocr = pre_process_ocr_results(self)
         self.image_x_range = self.df_ocr['2x'].max() - self.df_ocr['1x'].min()
         self.image_y_range = self.df_ocr['3y'].max() - self.df_ocr['1y'].min()
         self.df_values = self.df_ocr.loc[self.df_ocr['is_numeric'], :].copy()
         self.df_values['text2'] = self.df_values['text2'].astype(float)
-        self.cutoff = cutoff
         self.number_of_netto_values = 4
         self.netto_amount = 0
 
