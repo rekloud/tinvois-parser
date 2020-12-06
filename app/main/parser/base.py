@@ -3,6 +3,8 @@ import pandas as pd
 from .ocr import ocr_image
 from .utils import read_config, get_close_matches_indexes
 from .preprocessing import pre_process_ocr_results, get_rotation
+from .ml_approach.feature_extraction import extract_features_token
+from .ml_approach.classifier import classify
 from ..utils import get_logger
 
 logger = get_logger(__file__)
@@ -20,6 +22,8 @@ class _Receipt:
         self.image_y_range = self.df_ocr['3y'].max() - self.df_ocr['1y'].min()
         self.df_values = self.df_ocr.loc[self.df_ocr['is_numeric'], :].copy()
         self.df_values['text2'] = self.df_values['text2'].astype(float)
+        extract_features_token(self)
+        classify(self)
         self.number_of_netto_values = 4
         self.netto_amount = 0
 
