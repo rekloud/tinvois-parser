@@ -1,16 +1,5 @@
 import pandas as pd
-from difflib import get_close_matches
 from ..base import _Receipt
-
-
-def tokenize(text: str, receipt: _Receipt) -> str:
-    for key_label, token in [('sum_keys', 'SUM'), ('netto_keys', 'NETTO'),
-                             ('brutto_keys', 'BRUTTO'), ('steure_keys', 'VAT')]:
-        for key in receipt.config[key_label]:
-            matches = get_close_matches(key, [text], cutoff=receipt.cutoff)
-            if (len(matches) > 0) or (key in text):
-                return token
-    return 'OTHER'
 
 
 def extract_features_token(receipt: _Receipt):

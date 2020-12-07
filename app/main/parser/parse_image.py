@@ -1,7 +1,6 @@
 import base64
 from uuid import uuid4
 from .base import _Receipt
-from .ml_approach.feature_extraction import tokenize
 from .ml_approach.feature_extraction import extract_features_token
 from .ml_approach.classifier import classify
 from .ml_approach.sum_parser import parse_sum
@@ -17,7 +16,6 @@ logger = get_logger(__file__)
 class Receipt(_Receipt):
 
     def fit(self):
-        self.df_ocr['token'] = self.df_ocr['text'].apply(lambda x: tokenize(x, self))
         self.df_ocr.loc[self.df_ocr['is_numeric'], 'token'] = 'VALUE'
         extract_features_token(self)
         classify(self)

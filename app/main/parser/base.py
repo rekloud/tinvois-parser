@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from .ocr import ocr_image
 from .utils import read_config, get_close_matches_indexes
-from .preprocessing import pre_process_ocr_results, get_rotation
+from .preprocessing import pre_process_ocr_results
 from ..utils import get_logger
 
 logger = get_logger(__file__)
@@ -17,8 +17,7 @@ class _Receipt:
         self.df_ocr_raw = ocr_image(image_content)
         self.number_of_netto_values = 4
         self.netto_amount = 0
-        self.rotation = get_rotation(self.df_ocr_raw)
-        self.df_ocr = pre_process_ocr_results(self)
+        self.df_ocr, self.rotation = pre_process_ocr_results(self)
         self.image_x_range = self.df_ocr['2x'].max() - self.df_ocr['1x'].min()
         self.image_y_range = self.df_ocr['3y'].max() - self.df_ocr['1y'].min()
         self.df_values = self.df_ocr.loc[self.df_ocr['is_numeric'], :].copy()

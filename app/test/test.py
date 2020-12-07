@@ -25,6 +25,8 @@ class TestParser(unittest.TestCase):
             print(file_name, end=' ')
             if actual_str != expected:
                 print('FAILED')
+                print('actual  ', actual_str)
+                print('expected', expected)
                 failed_cases.append((file_name,  actual_str, expected))
             else:
                 print('succeed')
