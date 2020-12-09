@@ -1,4 +1,6 @@
 import re
+import string
+
 from ..utils import get_logger
 from .base import _Receipt
 
@@ -20,4 +22,4 @@ def regex_merchant_parser(receipt: _Receipt) -> str or None:
             matches = re.search(spelling, receipt.df_ocr.loc[0, 'text'])
             if matches:
                 return market
-    return receipt.df_ocr.loc[0, 'text'].split('\n')[0].capitalize()
+    return string.capwords(receipt.df_ocr.loc[0, 'text'].split('\n')[0])
