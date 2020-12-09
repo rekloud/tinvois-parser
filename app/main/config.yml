@@ -80,7 +80,7 @@ sum_keys:
 #  - zwischensumme
   - betrag
   - sum
-  - bar
+#  - bar
   - gegeben
 
 brutto_keys:

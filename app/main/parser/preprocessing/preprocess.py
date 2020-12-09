@@ -25,4 +25,3 @@ def pre_process_ocr_results(receipt) -> (pd.DataFrame, float):
                             & (df_ocr['text'].str.contains('[,\.]', regex=True))
                             )
     return df_ocr, rotation
-
