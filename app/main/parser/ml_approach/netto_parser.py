@@ -5,6 +5,7 @@ from ..base import _Receipt
 logger = get_logger(__file__)
 
 
+# TODO when netto could not be find try reducing VAT from SUM
 def parse_netto(receipt: _Receipt) -> int:
     netto_parsers = [parse_netto_from_table, parse_netto_in_front]
     for netto_parser in netto_parsers:
