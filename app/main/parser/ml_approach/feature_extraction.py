@@ -32,7 +32,7 @@ def get_same_line_after(receipt: _Receipt, row: pd.Series, col_name: str) -> str
 def get_over(receipt: _Receipt, row: pd.Series, col_name: str) -> str:
     character_length = (row['3x'] - row['4x']) / len(row['text'])
     df_ocr = receipt.df_ocr
-    df_filtered = df_ocr[((df_ocr['3x'] - row['3x']).abs() < (character_length * 3))
+    df_filtered = df_ocr[((df_ocr['3x'] - row['3x']).abs() < (character_length * 6))
                          & ((row['3y'] - df_ocr['3y'])
                             .between(receipt.line_height / 2, receipt.line_height * 4))
                          ]

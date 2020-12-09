@@ -45,7 +45,7 @@ markets:
   Tedi:
     - tedi
   Tankstelle:
-     - shell
+#     - shell
      - esso
      - aral
      - tankstelle
@@ -87,8 +87,7 @@ sum_keys:
 
 brutto_keys:
   - brutoo
-#  - total
-  - gesamt
+  - brutto-summe
   - bruttoumsatz
 
 netto_keys:
@@ -97,11 +96,12 @@ netto_keys:
   - nettoumsatz
   - netto-entgelt
   - netto-warenwert
-  - gesamt
+  - netto-summe
 
 steure_keys:
   - steuer
   - mwst
+  - mwst-summe
 
 paymentmethods:
   Cash:
