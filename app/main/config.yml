@@ -94,6 +94,7 @@ netto_keys:
   - nettobetrag
   - nettoumsatz
   - netto-entgelt
+  - netto-warenwert
   - gesamt
 
 steure_keys:

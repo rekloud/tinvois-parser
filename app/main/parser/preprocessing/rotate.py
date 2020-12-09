@@ -16,6 +16,8 @@ def rotate_df_ocr(df_ocr: pd.DataFrame) -> (pd.DataFrame, int):
 def get_rotation(df_ocr: pd.DataFrame) -> int:
     _df_ocr = df_ocr.drop(0)[
         df_ocr.drop(0)['token'].isin(['NETTO', 'BRUTTO', 'VAT', 'SUM', 'VALUE'])]
+    if len(_df_ocr) == 0:
+        _df_ocr = df_ocr.drop(0)
     row = _df_ocr.assign(length=_df_ocr['text'].apply(len)
                          ).sort_values('length', ascending=False
                                        ).select_dtypes(np.number).iloc[0].astype(float)
