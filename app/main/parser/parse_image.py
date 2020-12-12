@@ -3,6 +3,7 @@ from uuid import uuid4
 from .base import _Receipt
 from .ml_approach.feature_extraction import extract_features_token
 from .ml_approach.classifier import classify
+from .ml_approach.vat_parser import parse_vat
 from .ml_approach.sum_parser import parse_sum
 from .ml_approach.netto_parser import parse_netto
 from .ml_approach.brutto_parser import parse_brutto
@@ -19,6 +20,7 @@ class Receipt(_Receipt):
         self.df_ocr.loc[self.df_ocr['is_numeric'], 'token'] = 'VALUE'
         extract_features_token(self)
         classify(self)
+        parse_vat(self)
 
     def parse_all(self) -> dict:
         self.fit()

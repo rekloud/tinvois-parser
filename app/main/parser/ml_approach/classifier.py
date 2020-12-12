@@ -37,6 +37,7 @@ def classify(receipt: _Receipt):
 
     receipt.df_values['VAT_LINE'] = (
         receipt.df_values['same_line_before_token'].str.contains('VAT')
+        & ~ receipt.df_values['same_line_after_token'].str.contains('VALUE')
     )
 
     # For cases where netto and brutto come in the same line and netto before brutto

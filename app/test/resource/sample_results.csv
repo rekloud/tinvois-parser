@@ -22,3 +22,6 @@ file,result
 .\resource/sample_receipts\penny3.jpg,"{""data"": {""rotation"": 90, ""amount"": 225, ""amountexvat"": 205, ""brutto"": 225, ""merchant_name"": ""Penny"", ""date"": ""2020-12-04T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\tedi2.jpg,"{""data"": {""rotation"": 90, ""amount"": 1110, ""amountexvat"": 957, ""brutto"": 1110, ""merchant_name"": ""Tedi"", ""date"": ""2020-12-08T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\saturn.jpg,"{""data"": {""rotation"": 90, ""amount"": 19495, ""amountexvat"": 16806, ""brutto"": 19495, ""merchant_name"": ""Saturn"", ""date"": ""2020-12-09T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\salamander3.jpg,"{""data"": {""rotation"": 0, ""amount"": 6495, ""amountexvat"": 5599.0, ""brutto"": 6495.0, ""merchant_name"": ""Salamander"", ""date"": ""2020-12-05T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\tschibo.jpg,"{""data"": {""rotation"": 0, ""amount"": 1949, ""amountexvat"": 1680.0, ""brutto"": 1949.0, ""merchant_name"": ""\u00dd Tchibo"", ""date"": ""2020-12-09T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\action.jpg,"{""data"": {""rotation"": 0, ""amount"": 836, ""amountexvat"": 721.0, ""brutto"": 836.0, ""merchant_name"": ""Action"", ""date"": ""2020-12-11T00:00:00"", ""hash"": ""a_hash""}}"

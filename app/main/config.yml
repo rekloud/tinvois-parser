@@ -46,7 +46,7 @@ markets:
     - tedi
   Tankstelle:
 #     - shell
-     - esso
+#     - esso
      - aral
      - tankstelle
   IKEA:
