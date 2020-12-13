@@ -76,6 +76,7 @@ sum_keys:
   - gesamtbetrag
   - gesamt
   - kaufsumme
+  - gesamtsumme
   - total
   - endbetrag
   - zahlen
@@ -101,6 +102,7 @@ netto_keys:
 steure_keys:
   - steuer
   - mwst
+  - mwst-betrag
   - mwst-summe
 
 paymentmethods:

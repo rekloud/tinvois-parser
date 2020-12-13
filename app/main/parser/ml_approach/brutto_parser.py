@@ -30,4 +30,4 @@ def parse_brutto_in_front(receipt: _Receipt) -> int:
 
 def parse_brutto_with_vat(receipt: _Receipt):
     if hasattr(receipt, 'vat_value') and hasattr(receipt, 'netto_amount'):
-        return receipt.vat_value + receipt.netto_amount
+        return int(receipt.vat_value + receipt.netto_amount)
