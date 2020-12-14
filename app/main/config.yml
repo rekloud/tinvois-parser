@@ -1,7 +1,10 @@
 ---
-# Where the receipts are stored
-# Receipts should be simple text files
-receipts_path: "data/txt"
+words_to_merge:
+  - ohne mwst
+  - mit mwst
+  - o. mwst
+  - 0. mwst
+  - mwst summe
 
 # Market names roughly ordered by likelyhood.
 # Can contain market locations for fuzzy parsing
@@ -90,6 +93,7 @@ brutto_keys:
   - brutoo
   - brutto-summe
   - bruttoumsatz
+  - mit-mwst
 
 netto_keys:
   - netto
@@ -98,6 +102,9 @@ netto_keys:
   - netto-entgelt
   - netto-warenwert
   - netto-summe
+  - ohne-mwst
+  - o.-mwst
+  - 0.-mwst
 
 steure_keys:
   - steuer

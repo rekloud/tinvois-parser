@@ -25,3 +25,5 @@ file,result
 .\resource/sample_receipts\salamander3.jpg,"{""data"": {""rotation"": 0, ""amount"": 6495, ""amountexvat"": 5599, ""brutto"": 6495, ""merchant_name"": ""Salamander"", ""date"": ""2020-12-05T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\tschibo.jpg,"{""data"": {""rotation"": 0, ""amount"": 1949, ""amountexvat"": 1680, ""brutto"": 1949, ""merchant_name"": ""\u00dd Tchibo"", ""date"": ""2020-12-09T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\action.jpg,"{""data"": {""rotation"": 0, ""amount"": 836, ""amountexvat"": 721, ""brutto"": 836, ""merchant_name"": ""Action"", ""date"": ""2020-12-11T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\decathlon.jpg,"{""data"": {""rotation"": 0, ""amount"": 1461, ""amountexvat"": 1259, ""brutto"": null, ""merchant_name"": ""Decathlon"", ""date"": ""2020-12-12T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\real.jpg,"{""data"": {""rotation"": 0, ""amount"": 7373, ""amountexvat"": 6957, ""brutto"": 7373, ""merchant_name"": ""Real"", ""date"": ""2020-11-21T00:00:00"", ""hash"": ""a_hash""}}"

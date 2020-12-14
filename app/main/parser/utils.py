@@ -32,9 +32,9 @@ def get_close_matches_indexes(word, possibilities, n=3, cutoff=0.6):
     result = []
     s = SequenceMatcher()
     s.set_seq2(word)
-    # To ensure getting first match when it is a total match
     for idx, x in enumerate(possibilities):
         s.set_seq1(x)
+        # To ensure getting first match when it is a total match
         if n == 1 and \
            s.real_quick_ratio() >= .99 and \
            s.quick_ratio() >= .99 and \
