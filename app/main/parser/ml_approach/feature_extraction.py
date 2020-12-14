@@ -17,7 +17,7 @@ def get_same_line_before(receipt: _Receipt, row: pd.Series, col_name: str) -> st
     df_filtered = df_ocr.loc[((df_ocr['3y'] - row['3y']).abs() < word_height * .9)
                              & (df_ocr['3x'] < row['3x'])
                              ]
-    return '|'.join(df_filtered.sort_values('1x', ascending=False)[col_name])
+    return '|'.join(df_filtered.sort_values('1x', ascending=False).head(6)[col_name])
 
 
 def get_same_line_after(receipt: _Receipt, row: pd.Series, col_name: str) -> str:
@@ -26,7 +26,7 @@ def get_same_line_after(receipt: _Receipt, row: pd.Series, col_name: str) -> str
     df_filtered = df_ocr.loc[((df_ocr['3y'] - row['3y']).abs() <= word_height)
                              & (df_ocr['3x'] > row['3x'])
                              ]
-    return '|'.join(df_filtered.sort_values('1x', ascending=True)[col_name])
+    return '|'.join(df_filtered.sort_values('1x', ascending=True).head(6)[col_name])
 
 
 def get_over(receipt: _Receipt, row: pd.Series, col_name: str) -> str:
@@ -36,4 +36,4 @@ def get_over(receipt: _Receipt, row: pd.Series, col_name: str) -> str:
                          & ((row['3y'] - df_ocr['3y'])
                             .between(receipt.line_height / 2, receipt.line_height * 4))
                          ]
-    return '|'.join(df_filtered.sort_values('1x', ascending=False)[col_name])
+    return '|'.join(df_filtered.sort_values('1x', ascending=False).head(6)[col_name])
