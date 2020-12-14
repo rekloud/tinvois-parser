@@ -2,6 +2,7 @@ from difflib import get_close_matches
 
 
 def tokenize(text: str, receipt) -> str:
+    # return text
     for key_label, token in [('netto_keys', 'NETTO'),
                              ('brutto_keys', 'BRUTTO'),
                              ('steure_keys', 'VAT'),

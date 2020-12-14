@@ -1,4 +1,5 @@
-FROM python:3.8-slim
+#FROM python:3.8-slim
+FROM tiangolo/meinheld-gunicorn-flask:python3.8
 
 WORKDIR /app
 
@@ -13,4 +14,3 @@ RUN mkdir google_auth
 RUN pip install -r ./requirements.txt
 
 USER taxapp
-CMD ["python3", "./manage.py"]
