@@ -1,4 +1,4 @@
-from main.parser.base import _Receipt
+from ...parser.base import _Receipt
 
 
 def classify(receipt: _Receipt):
