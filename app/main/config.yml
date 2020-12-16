@@ -5,6 +5,7 @@ words_to_merge:
   - o. mwst
   - 0. mwst
   - mwst summe
+  - zu zahlen
 
 # Market names roughly ordered by likelyhood.
 # Can contain market locations for fuzzy parsing
@@ -84,6 +85,7 @@ sum_keys:
   - total
   - endbetrag
   - zahlen
+  - zu-zahlen
 #  - zwischensumme
   - betrag
   - sum
