@@ -27,3 +27,4 @@ file,result
 .\resource/sample_receipts\action.jpg,"{""data"": {""rotation"": 0, ""amount"": 836, ""amountexvat"": 721, ""brutto"": 836, ""merchant_name"": ""Action"", ""date"": ""2020-12-11T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\decathlon.jpg,"{""data"": {""rotation"": 0, ""amount"": 1461, ""amountexvat"": 1259, ""brutto"": null, ""merchant_name"": ""Decathlon"", ""date"": ""2020-12-12T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\real.jpg,"{""data"": {""rotation"": 0, ""amount"": 7373, ""amountexvat"": 6957, ""brutto"": 7373, ""merchant_name"": ""Real"", ""date"": ""2020-11-21T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\tinvois3.jpg,"{""data"": {""rotation"": 0, ""amount"": 160517, ""amountexvat"": 138367, ""brutto"": 160517, ""merchant_name"": ""Name Of Business"", ""date"": ""2020-12-01T00:00:00"", ""hash"": ""a_hash""}}"

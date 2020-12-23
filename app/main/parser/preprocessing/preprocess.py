@@ -23,7 +23,8 @@ def pre_process_ocr_results(receipt) -> (pd.DataFrame, float):
     df_ocr = merge_words(receipt, df_ocr)
     df_ocr = merge_split_values(receipt, df_ocr)
     df_ocr.sort_values('1y', inplace=True)
-    df_ocr['text2'] = (df_ocr['text'].str.replace(',', '')
+    df_ocr['text2'] = (df_ocr['text']
+                       .str.replace(',', '')
                        .str.replace('.', '')
                        .str.replace('€', '')
                        .str.replace('$', '')
@@ -32,7 +33,7 @@ def pre_process_ocr_results(receipt) -> (pd.DataFrame, float):
                        )
     df_ocr['is_numeric'] = (df_ocr['text2'].str.isdigit()
                             & (df_ocr['text2'].apply(len) >= 3)
-                            & (df_ocr['text'].str.contains('[,\.]', regex=True))
+                            & (df_ocr['text'].str.contains(r'[,\.][0-9][0-9]$', regex=True))
                             )
     return df_ocr, rotation
 
