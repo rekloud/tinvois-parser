@@ -17,7 +17,7 @@ def get_rotation(df_ocr: pd.DataFrame) -> int:
     row = get_row_with_longest_word(df_ocr)
     slope = get_slope(row)
     rotation = int(np.round(np.degrees(np.arctan(slope))))
-    return round_rotation(rotation, row)
+    return round_rotation(rotation, row, 1)
 
 
 def get_row_with_longest_word(df_ocr: pd.DataFrame) -> pd.Series:
@@ -40,16 +40,16 @@ def get_slope(row: pd.Series) -> float:
     return slope
 
 
-def round_rotation(rotation: int, row: pd.Series) -> int:
+def round_rotation(rotation: int, row: pd.Series, max_rotation: int) -> int:
     """
     ignore rotations less than 5 degrees
     """
-    if isclose(abs(rotation), 90, abs_tol=5):
+    if isclose(abs(rotation), 90, abs_tol=max_rotation):
         if row['2x'] > row['3x']:
             return -90
         else:
             return 90
-    if isclose(abs(rotation), 0, abs_tol=5):
+    if isclose(abs(rotation), 0, abs_tol=max_rotation):
         if row['2y'] > row['3y']:
             return 180
         else:

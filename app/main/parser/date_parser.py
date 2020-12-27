@@ -23,6 +23,7 @@ def regex_date_parser(receipt: _Receipt) -> str or None:
                 date_str = match.group(0)
                 logger.debug(f'date_str: {date_str}')
                 date_str = date_str.replace(" ", "")
+                logger.info(f'date parsed using individual rows {date_str}')
                 return dateutil.parser.parse(date_str, dayfirst=True).isoformat()
             except Exception as e:
                 logger.warning(f'Failed to parse a date {str(e)}')
@@ -34,12 +35,12 @@ def regex_date_parser_from_full_text(receipt: _Receipt) -> str or None:
     for date_str in matches:
         try:
             date_str = date_str.replace(" ", "")
+            logger.debug(f'date_str: {date_str}')
             parsed_date = dateutil.parser.parse(date_str, dayfirst=True)
             if parsed_date.year > 1990:
+                logger.info(f'date parsed using full rows {date_str}')
                 return parsed_date.isoformat()
             else:
                 continue
         except:
             pass
-        finally:
-            logger.debug(f'date_str: {date_str}')
