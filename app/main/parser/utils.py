@@ -2,6 +2,9 @@ import yaml
 from difflib import SequenceMatcher
 from heapq import nlargest as _nlargest
 from ..config import PARSER_CONFIG_FILE
+from ..utils.log import get_logger
+
+logger = get_logger(__name__)
 
 
 def read_config(config=PARSER_CONFIG_FILE):
@@ -10,7 +13,7 @@ def read_config(config=PARSER_CONFIG_FILE):
             docs = yaml.safe_load(stream)
             return docs
         except yaml.YAMLError as e:
-            print(e)
+            logger.warning(str(e))
 
 
 def get_close_matches_indexes(word, possibilities, n=3, cutoff=0.6):
