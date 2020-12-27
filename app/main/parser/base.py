@@ -1,6 +1,7 @@
 from typing import List
 import numpy as np
 import pandas as pd
+from flask_restplus import abort
 from .ocr import ocr_image
 from .utils import read_config, get_close_matches_indexes
 from .preprocessing import pre_process_ocr_results
@@ -21,6 +22,10 @@ class _Receipt:
         self.image_x_range = self.df_ocr['2x'].max() - self.df_ocr['1x'].min()
         self.image_y_range = self.df_ocr['3y'].max() - self.df_ocr['1y'].min()
         self.df_values = self.df_ocr.loc[self.df_ocr['is_numeric'], :].copy()
+        if len(self.df_values) == 0:
+            msg = 'Image contains no amount'
+            logger.warning(msg)
+            abort(400, msg)
         self.df_values['text2'] = self.df_values['text2'].astype(float)
         self.line_height = np.median(self.df_ocr['3y'] - self.df_ocr['2y'])
 

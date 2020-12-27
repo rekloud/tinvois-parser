@@ -44,6 +44,11 @@ class TestParser(unittest.TestCase):
         self.assertRaises(werkzeug.exceptions.BadRequest,
                           parse_image, get_image_content(image_with_no_text))
 
+    def test_fail_when_no_value_in_image(self, mock_hash):
+        image_with_no_text = './resource/sample_receipts/no_value.jpg'
+        self.assertRaises(werkzeug.exceptions.BadRequest,
+                          parse_image, get_image_content(image_with_no_text))
+
 
 def get_image_content(image_path):
     with io.open(image_path, 'rb') as f:
@@ -53,6 +58,7 @@ def get_image_content(image_path):
 
 TestParser().test_parser_on_sample_images()
 TestParser().test_fail_when_no_text_in_image()
+TestParser().test_fail_when_no_value_in_image()
 
 # To produce test material
 # import glob
