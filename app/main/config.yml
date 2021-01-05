@@ -5,6 +5,8 @@ words_to_merge:
   - o. mwst
   - 0. mwst
   - mwst summe
+  - ohne ust.
+  - ges. ust.
   - zu zahlen
 
 # Market names roughly ordered by likelyhood.
@@ -109,6 +111,7 @@ netto_keys:
   - ohne-mwst
   - o.-mwst
   - 0.-mwst
+  - ohne-ust.
 
 steure_keys:
   - steuer
@@ -116,6 +119,7 @@ steure_keys:
   - mehrwertsteuer
   - mwst-betrag
   - mwst-summe
+  - ust.
 
 paymentmethods:
   Cash:
