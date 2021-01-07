@@ -33,8 +33,8 @@ def get_row_with_longest_word(df_ocr: pd.DataFrame) -> pd.Series:
 
 def get_slope(row: pd.Series) -> float:
     denominator = row['3x'] - row['4x']
-    if isclose(abs(denominator), 0, abs_tol=.01):
-        slope = row['4y'] - row['3y']
+    if isclose(abs(denominator), 0, abs_tol=3.):
+        slope = np.sign(row['4y'] - row['3y']) * np.inf
     else:
         slope = (row['4y'] - row['3y']) / denominator
     return slope
