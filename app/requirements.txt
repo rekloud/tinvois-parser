@@ -23,3 +23,7 @@ python-editor==1.0.4
 pytz==2020.1
 Werkzeug==0.16.1
 wincertstore==0.2
+opencv-python==4.5.1.48
+scikit-image==0.18.1
+imutils==0.5.4
+rdp==0.8
