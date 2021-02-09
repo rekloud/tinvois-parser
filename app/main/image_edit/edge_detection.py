@@ -15,11 +15,11 @@ class PaperEdgeDetector:
     def get_image_edges(self):
         self._shrink_image()
         edged = edge_detection(self.image)
-        connected_components = get_longest_edge(edged)
-        contour = get_contours(connected_components)
+        longest_edge = get_longest_edge(edged)
+        contour = get_contours(longest_edge)
         paper_edges = get_polygon_around_contour(contour)
         # cv2.imshow('edged', edged.astype(np.uint8))
-        # cv2.imshow('conn', connected_components.astype(np.uint8))
+        # cv2.imshow('conn', longest_connected_component.astype(np.uint8))
         # draw_contours(self.image, paper_edges, True, 'convex')
         simple_edges = simplify_edges(paper_edges)
         return self._get_fourgon_surrounding_paper(simple_edges)
@@ -40,11 +40,11 @@ def edge_detection(image):
 
 
 def get_longest_edge(edged):
-    _, connected_components, stats, _ = cv2.connectedComponentsWithStats(edged.copy(),
+    _, connected_components, stats, _ = cv2.connectedComponentsWithStats(edged,
                                                                          connectivity=8)
-    label_of_longest_edge = stats[1:, 4].argmax() + 1
-    connected_components[connected_components != label_of_longest_edge] = 0
-    connected_components[connected_components == label_of_longest_edge] = 100
+    label_of_longest_connected_component = stats[1:, 4].argmax() + 1
+    connected_components[connected_components != label_of_longest_connected_component] = 0
+    connected_components[connected_components == label_of_longest_connected_component] = 100
     return connected_components
 
 
