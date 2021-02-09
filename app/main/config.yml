@@ -104,6 +104,7 @@ brutto_keys:
 netto_keys:
   - netto
   - nettobetrag
+  - nettowert
   - nettoumsatz
   - netto-entgelt
   - netto-warenwert
