@@ -1,4 +1,5 @@
 google-cloud-vision==2.0.0
+numpy==1.20.1
 pandas==1.1.4
 python-dotenv==0.15.0
 alembic==1.4.2
@@ -22,6 +23,7 @@ python-dateutil==2.8.1
 python-editor==1.0.4
 pytz==2020.1
 Werkzeug==0.16.1
+data-science-types==0.2.22
 wincertstore==0.2
 opencv-python==4.5.1.48
 scikit-image==0.18.1

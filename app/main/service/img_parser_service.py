@@ -1,5 +1,5 @@
 import base64
-from ..parser.parse_image import Receipt
+from ..parser import Receipt
 from ..utils.log import get_logger
 
 logger = get_logger(__file__)

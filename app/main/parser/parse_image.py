@@ -24,7 +24,7 @@ class Receipt(_Receipt):
 
     def parse_all(self) -> dict:
         self.fit()
-        return dict(
+        output = dict(
             rotation=self.rotation,
             amount=self.get_sum(),
             amountexvat=self.get_netto(),
@@ -34,6 +34,9 @@ class Receipt(_Receipt):
             hash=get_image_hash(self.image_content),
             raw_text=base64.b64encode(self.df_ocr_raw.to_json(orient='index').encode()).decode()
         )
+        if output['amount'] is None:
+            output['amount'] = output['brutto']
+        return output
 
     def get_date(self):
         return parse_date(self)

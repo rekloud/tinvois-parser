@@ -99,6 +99,7 @@ brutto_keys:
   - brutoo
   - brutto-summe
   - bruttoumsatz
+  - bruttobetrag
   - mit-mwst
 
 netto_keys:
