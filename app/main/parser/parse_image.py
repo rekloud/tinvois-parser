@@ -28,14 +28,13 @@ class Receipt(_Receipt):
             rotation=self.rotation,
             amount=self.get_sum(),
             amountexvat=self.get_netto(),
-            brutto=self.get_brutto(),
             merchant_name=self.get_merchant(),
             date=self.get_date(),
             hash=get_image_hash(self.image_content),
             raw_text=base64.b64encode(self.df_ocr_raw.to_json(orient='index').encode()).decode()
         )
         if output['amount'] is None:
-            output['amount'] = output['brutto']
+            output['amount'] = self.get_brutto()
         return output
 
     def get_date(self):
