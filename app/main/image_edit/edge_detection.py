@@ -1,4 +1,3 @@
-from typing import ByteString
 from rdp import rdp
 from .utils import order_points, get_polygon_area
 from .visualization import draw_contours
@@ -8,7 +7,7 @@ import imutils
 
 
 class PaperEdgeDetector:
-    def __init__(self, image: ByteString):
+    def __init__(self, image: np.ndarray):
         self.image = image
         self.original_image = image.copy()
 
@@ -22,14 +21,14 @@ class PaperEdgeDetector:
         # cv2.imshow('conn', longest_connected_component.astype(np.uint8))
         # draw_contours(self.image, paper_edges, True, 'convex')
         simple_edges = simplify_edges(paper_edges)
-        return self._get_fourgon_surrounding_paper(simple_edges)
+        return self._get_fourgon_surrounding_paper(simple_edges).tolist()
 
     def _shrink_image(self):
         self.ratio = self.image.shape[0] / 500.0
         self.image = imutils.resize(self.image, height=500)
 
     def _get_fourgon_surrounding_paper(self, edges):
-        return order_points(edges.reshape(-1, 2) * self.ratio).reshape(-1, 1, 2).astype(np.int32)
+        return order_points(edges.reshape(-1, 2) * self.ratio).reshape(-1, 2).astype(np.int32)
 
 
 def edge_detection(image):

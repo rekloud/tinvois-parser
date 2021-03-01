@@ -12,5 +12,7 @@ def draw_contours(image, contour, include_points=False, title='Outline'):
             cv2.drawMarker(image, tuple(p[0]), color=(0, 0, 255), markerType=cv2.MARKER_DIAMOND)
     cv2.drawContours(image, [contour], -1, (0, 255, 0), 2)
     cv2.imshow(title, image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 
