@@ -15,12 +15,9 @@ def sever_to_server_token_required(f):
         if auth_token:
             if auth_token.strip() == SERVER_TO_SERVER_TOKEN:
                 return f(*args, **kwargs)
-            else:
-                msg = 'Invalid token'
-                logger.error(msg)
-                abort(401, msg)
+            msg = 'Invalid token'
         else:
             msg = 'No token is provided'
-            logger.error(msg)
-            abort(401, msg)
+        logger.warning(msg)
+        abort(401, msg)
     return decorated

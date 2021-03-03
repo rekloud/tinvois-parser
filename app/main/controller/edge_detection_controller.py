@@ -1,7 +1,7 @@
 from flask_restplus import Resource
 from flask import request
 
-from ..authorization.decorator import sever_to_server_token_required
+from ..authorization import sever_to_server_token_required
 from ..service.edge_detector_service import detect_edges
 from ..utils.dto import EdgeDetectorDto
 

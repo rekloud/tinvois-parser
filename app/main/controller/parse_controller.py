@@ -1,7 +1,7 @@
 from flask_restplus import Resource
 from flask import request
 
-from ..authorization.decorator import sever_to_server_token_required
+from ..authorization import sever_to_server_token_required
 from ..service.img_parser_service import parse_image
 from ..utils.dto import ParseDto
 

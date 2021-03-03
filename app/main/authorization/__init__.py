@@ -1,0 +1,1 @@
+from .decorator import sever_to_server_token_required
