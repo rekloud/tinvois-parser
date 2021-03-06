@@ -3,24 +3,6 @@
 An API to extract information from images of invoices/receipts. It extracts date, total amount,
 amount excluding VAT and the merchant name.
 
-## Sample result
-
-### Input image
-![Sample receipt](app/test/resource/sample_receipts/dominos.jpg)
-
-### Result
-
-    ```
-    {
-        "data": {
-            "rotation": -4,
-            "amount": 1497,
-            "amountexvat": 1426,
-            "merchant_name": "Domino's",
-            "date": "2020-11-17T00:00:00",
-        }
-    }
-    ```
 ## Why I made it?
 
     We wanted to develop an app called tinvois to help freelancers in tax declaration. It is
@@ -62,6 +44,25 @@ In the following steps
         - Merchant name: I listed a the most common merchants in Germany. It first tries to string
             match one from that list. If non of them found, it uses simply the first line in 
             the image. Turns out it works fine :)
+
+## Sample result
+
+### Input image
+![Sample receipt](app/test/resource/sample_receipts/dominos.jpg)
+
+### Result
+
+    ```
+    {
+        "data": {
+            "rotation": -4,
+            "amount": 1497,
+            "amountexvat": 1426,
+            "merchant_name": "Domlno's",
+            "date": "2020-11-17T00:00:00",
+        }
+    }
+    ```
 
 ## How to use
 
