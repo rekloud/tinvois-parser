@@ -6,7 +6,7 @@ amount excluding VAT and the merchant name.
 ## Sample result
 
 ### Input image
-    ![Sample receipt](app/test/resource/sample_receipts/dominos.jpg)
+![Sample receipt](app/test/resource/sample_receipts/dominos.jpg)
 
 ### Result
 
