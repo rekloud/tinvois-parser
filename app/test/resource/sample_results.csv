@@ -9,7 +9,7 @@ file,result
 .\resource/sample_receipts\fileName+rotation.jpg,"{""data"": {""rotation"": 7, ""amount"": 1430, ""amountexvat"": 1202, ""merchant_name"": ""Apotheke"", ""date"": ""2020-03-09T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\fritten.jpg,"{""data"": {""rotation"": 0, ""amount"": 1500, ""amountexvat"": 1429, ""merchant_name"": ""# Gustavo ##"", ""date"": ""2020-09-05T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\invoice1.jpeg,"{""data"": {""rotation"": 0, ""amount"": 5749, ""amountexvat"": 1974, ""merchant_name"": ""Dm"", ""date"": ""2020-08-12T00:00:00"", ""hash"": ""a_hash""}}"
-.\resource/sample_receipts\kaufland_vertical.jpg,"{""data"": {""rotation"": 0, ""amount"": 5900, ""amountexvat"": 926, ""merchant_name"": ""Kaufland"", ""date"": ""2006-10-11T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\kaufland_vertical.jpg,"{""data"": {""rotation"": 0, ""amount"": 5900, ""amountexvat"": 926, ""merchant_name"": ""Kaufland"", ""date"": ""2020-11-14T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\rossmann.jpg,"{""data"": {""rotation"": 0, ""amount"": 274, ""amountexvat"": 261, ""merchant_name"": ""Rossmann"", ""date"": ""2020-11-11T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\tank-OIL.jpg,"{""data"": {""rotation"": 0, ""amount"": 2020, ""amountexvat"": 1741, ""merchant_name"": ""Tankstelle"", ""date"": ""2020-10-10T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\kuzey.jpg,"{""data"": {""rotation"": 0, ""amount"": 3791, ""amountexvat"": 3599, ""merchant_name"": ""Kuzey Market"", ""date"": ""2020-11-13T00:00:00"", ""hash"": ""a_hash""}}"

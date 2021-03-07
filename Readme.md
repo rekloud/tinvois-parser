@@ -6,9 +6,9 @@ amount excluding VAT and the merchant name.
 ## Why I made it?
 
 We wanted to develop an app called tinvois to help freelancers in tax declaration,
-specifically organizing receipts. It is
-available here: https://tinvois.de. We wanted to keep extra costs including 3rd party tools and marketing
-really low to be able to keep the price of the app small.
+specifically organizing receipts. It is available here: https://tinvois.de. We wanted to keep extra
+costs including 3rd party tools and marketing really low to be able to keep the price of
+the app small.
 
 One steps is to extract information from receipts photos. The open source solutions were not
 good enough. There are commercial API's which either do not work or are too expensive or both.
