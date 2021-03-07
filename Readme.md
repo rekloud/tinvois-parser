@@ -90,10 +90,10 @@ You can start the API locally either via python or docker desktop.
 * Run this commend
 ```
 docker run --name tinvois-parser -d \
--p 5005:5001 \
--v <path to folder containing google_auth.json>:/app/google_auth \
--e SERVER_TO_SERVER_TOKEN=<some string will be used as authorization token> \
-srhumir/tinvois-parser:latest
+    -p 5005:5001 \
+    -v <path to folder containing google_auth.json>:/app/google_auth \
+    -e SERVER_TO_SERVER_TOKEN=<some string will be used as authorization token> \
+    srhumir/tinvois-parser:latest
 ```
 It will pull the image from docker hub and run it. The "latest" tag always corresponds to the
 latest commit in master branch of this repository.
@@ -107,7 +107,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 
 ## Acknowledgements
 
-* The first ideas of the parsing came from here
+* The first ideas of how to parse came from here
     https://github.com/ReceiptManager/receipt-parser-legacy
 * I got the tokenizing idea from here
     https://medium.com/@Fivestars/receipt-parsing-via-machine-learning-1a3c495394d9
@@ -120,7 +120,8 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 ## TODO's (not necessarily comprehensive)
 
 * Add some python code for testing the API
-* Extends the tests to proper unit tests
+* Run tests using github actions on commit
+* Extend the tests to proper unit tests
 * Prepare a runnable windows PowerShell docker command
 * Make it to be able to use Azure OCR API
 * Improve how it gets the google json file so mounting a folder in the docker command is not
