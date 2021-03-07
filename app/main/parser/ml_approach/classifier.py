@@ -1,7 +1,7 @@
-from ...parser.base import _Receipt
+from ...parser.base import BaseReceipt
 
 
-def classify(receipt: _Receipt):
+def classify(receipt: BaseReceipt):
     assert 'same_line_before_token' in receipt.df_values.columns, 'do the feature extraction first'
     classes = ['SUM', 'NETTO_TABLE', 'BRUTTO_TABLE', 'VAT_TABLE', 'NETTO_LINE',
                'BRUTTO_LINE', 'VAT_LINE']

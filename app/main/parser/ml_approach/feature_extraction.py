@@ -1,8 +1,8 @@
 import pandas as pd
-from ..base import _Receipt
+from ..base import BaseReceipt
 
 
-def extract_features_token(receipt: _Receipt):
+def extract_features_token(receipt: BaseReceipt):
     receipt.df_values['same_line_before_token'] = receipt.df_values.apply(
         lambda row: get_same_line_before(receipt, row, 'token'), 1)
     receipt.df_values['same_line_after_token'] = receipt.df_values.apply(
@@ -11,7 +11,7 @@ def extract_features_token(receipt: _Receipt):
         lambda row: get_over(receipt, row, 'token'), 1)
 
 
-def get_same_line_before(receipt: _Receipt, row: pd.Series, col_name: str) -> str:
+def get_same_line_before(receipt: BaseReceipt, row: pd.Series, col_name: str) -> str:
     word_height = abs(row['3y'] - row['2y'])
     df_ocr = receipt.df_ocr
     df_filtered = df_ocr.loc[((df_ocr['3y'] - row['3y']).abs() < word_height * .9)
@@ -20,7 +20,7 @@ def get_same_line_before(receipt: _Receipt, row: pd.Series, col_name: str) -> st
     return '|'.join(df_filtered.sort_values('1x', ascending=False).head(6)[col_name])
 
 
-def get_same_line_after(receipt: _Receipt, row: pd.Series, col_name: str) -> str:
+def get_same_line_after(receipt: BaseReceipt, row: pd.Series, col_name: str) -> str:
     word_height = abs(row['3y'] - row['2y'])
     df_ocr = receipt.df_ocr
     df_filtered = df_ocr.loc[((df_ocr['3y'] - row['3y']).abs() <= word_height)
@@ -29,7 +29,7 @@ def get_same_line_after(receipt: _Receipt, row: pd.Series, col_name: str) -> str
     return '|'.join(df_filtered.sort_values('1x', ascending=True).head(6)[col_name])
 
 
-def get_over(receipt: _Receipt, row: pd.Series, col_name: str) -> str:
+def get_over(receipt: BaseReceipt, row: pd.Series, col_name: str) -> str:
     character_length = (row['3x'] - row['4x']) / len(row['text'])
     df_ocr = receipt.df_ocr
     df_filtered = df_ocr[((df_ocr['3x'] - row['3x']).abs() < (character_length * 6))

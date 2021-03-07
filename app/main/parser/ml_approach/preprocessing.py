@@ -1,8 +1,8 @@
 from difflib import get_close_matches
+from ..base import BaseReceipt
 
 
-def tokenize(text: str, receipt) -> str:
-    # return text
+def tokenize(text: str, receipt: BaseReceipt) -> str:
     for key_label, token in [('netto_keys', 'NETTO'),
                              ('brutto_keys', 'BRUTTO'),
                              ('steure_keys', 'VAT'),

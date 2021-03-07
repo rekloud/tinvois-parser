@@ -1,12 +1,12 @@
 import re
 import dateutil
 from ..utils import get_logger
-from .base import _Receipt
+from .base import BaseReceipt
 
 logger = get_logger(__file__)
 
 
-def parse_date(receipt: _Receipt) -> str:
+def parse_date(receipt: BaseReceipt) -> str:
     date_parsers = [regex_date_parser, regex_date_parser_from_full_text]
     for date_parser in date_parsers:
         date_string = date_parser(receipt)
@@ -15,7 +15,7 @@ def parse_date(receipt: _Receipt) -> str:
     logger.warning('could not parse date')
 
 
-def regex_date_parser(receipt: _Receipt) -> str or None:
+def regex_date_parser(receipt: BaseReceipt) -> str or None:
     for row in receipt.df_ocr.iloc[1:, :].itertuples():
         match = re.match(receipt.config['date_format'], row.text)
         if match:
@@ -30,7 +30,7 @@ def regex_date_parser(receipt: _Receipt) -> str or None:
                 continue
 
 
-def regex_date_parser_from_full_text(receipt: _Receipt) -> str or None:
+def regex_date_parser_from_full_text(receipt: BaseReceipt) -> str or None:
     matches = re.findall(receipt.config['date_format2'], receipt.df_ocr.iloc[0, :].text)
     for date_str in matches:
         try:
