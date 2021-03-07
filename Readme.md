@@ -22,12 +22,13 @@ So let's make it really good.
 In the following steps
 
 * Send the image to google Cloud Vision API to extract text
-* Put the results in a pandas DataFrame (I am a data scientist, I love DataFrame :))
+* Put the results in a pandas DataFrame (I am a data scientist, I love DataFrames :))
 * Preprocess the results as follows
+    - Lower case all the strings
     - Join some words that we know come after each other and are meaningful together
     - In case the number, say, "12. 13" is detected as two words, join them
     - Tokenize the words in "SUM", "NETTO" (amount excluding VAT), "BRUTTO" (gross amount)
-        "VAT", "VALUE" (words specifying a value) and "OTHER"
+        "VAT", "VALUE" (strings specifying a value) and "OTHER"
     - Convert the values to float and keep them in another DataFrame
     - Detect the rotation and rotate the coordinates back to vertical
     - For each value, extract a feature set. Namely tokens that appear in front of it,
@@ -41,28 +42,29 @@ In the following steps
         The rules are set based on receipts common in Germany. Feel free to suggest rules for
         other countries
 
-    - Merchant name: I listed a the most common merchants in Germany. It first tries to string
+    - Merchant name: I listed the most common merchants in Germany. It first tries to string
         match one from that list. If non of them found, it uses simply the first line in
         the image. Turns out it works fine :)
 
 ## Sample result
 
 ### Input image
-![Sample receipt](app/test/resource/sample_receipts/dominos.jpg)
+![Sample receipt](app/test/resource/sample_receipts/penny3.jpg)
 
 ### Result
 
-    ```
-    {
-        "data": {
-            "rotation": -4,
-            "amount": 1497,
-            "amountexvat": 1426,
-            "merchant_name": "Domlno's",
-            "date": "2020-11-17T00:00:00",
-        }
+```
+{
+    "data": {
+        "rotation": 90,
+        "amount": 225,
+        "amountexvat": 205,
+        "merchant_name": "Penny",
+        "date": "2020-12-04T00:00:00",
+        "hash": "34f8870f-e478-490e-ae45-3ce5c438a895" <This is currently a uuid. Plan to do image hashing>
     }
-    ```
+}
+```
 
 ## How to use
 
@@ -98,26 +100,30 @@ latest commit in master branch of this repository.
 The API is accessible in localhost:5001. Enter it in your browser to see the swagger UI
 
 ## What else it can do
-* I added also endpoints for detecting edges of paper in the image and also making a bird
+* I added also endpoints for detecting edges of paper in the image and also making bird
     view of the document using the edges.
 
 ## Acknowledgements
+
 * The first ideas of the parsing came from here
     https://github.com/ReceiptManager/receipt-parser-legacy
 * I got the tokenizing idea from here
     https://medium.com/@Fivestars/receipt-parsing-via-machine-learning-1a3c495394d9
 * The document edge detection and bird eye view is highly dependent on
     https://www.pyimagesearch.com/2014/09/01/build-kick-ass-mobile-document-scanner-just-5-minutes/
-* Last but not least. I used these two tutorials to learn how to develop a proper Flask rest-API
+* Last but not least. I used these two tutorials to learn how to develop a proper Flask Rest-API
     - https://preslav.me/2018/12/02/designing-well-structured-rest-apis-with-flask-restplus-part-1/
     - https://www.freecodecamp.org/news/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563/
 
 ## TODO's
-
-* Prepare a runnable windows powershel docker command
+* Add some python code for testing the API
+* Extends the tests to proper unit tests
+* Prepare a runnable windows PowerShell docker command
 * Make it to be able to use Azure OCR API
 * Improve how it gets the google json file so mounting a folder in the docker command is not
     necessary
-* Do proper image hashing.
-* Extract merchant address.
+* Do proper image hashing
+* Extract merchant address (maybe using this approach https://doi.org/10.1145/2494188.2494193
+  available for download here: ftp://www.kom.tu-darmstadt.de/papers/SMRS13-1.pdf)
+* Implement a small WebUI and deploy the API in a (free) server so that people can test it
 * Produce data for training ML algorithm

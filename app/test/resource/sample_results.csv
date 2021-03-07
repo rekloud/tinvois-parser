@@ -14,7 +14,7 @@ file,result
 .\resource/sample_receipts\tank-OIL.jpg,"{""data"": {""rotation"": 0, ""amount"": 2020, ""amountexvat"": 1741, ""merchant_name"": ""Tankstelle"", ""date"": ""2020-10-10T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\kuzey.jpg,"{""data"": {""rotation"": 0, ""amount"": 3791, ""amountexvat"": 3599, ""merchant_name"": ""Kuzey Market"", ""date"": ""2020-11-13T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\park.jpg,"{""data"": {""rotation"": 0, ""amount"": 250, ""amountexvat"": 210, ""merchant_name"": ""Parkhaus"", ""date"": ""2020-06-18T00:00:00"", ""hash"": ""a_hash""}}"
-.\resource/sample_receipts\dominos.jpg,"{""data"": {""rotation"": -4, ""amount"": 1497, ""amountexvat"": 1426, ""merchant_name"": ""Domino's"", ""date"": ""2020-11-17T00:00:00"", ""hash"": ""a_hash""}}"
+.\resource/sample_receipts\dominos.jpg,"{""data"": {""rotation"": -4, ""amount"": 1497, ""amountexvat"": 1426, ""merchant_name"": ""Domlno's"", ""date"": ""2020-11-17T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\cafe.jpg,"{""data"": {""rotation"": 2, ""amount"": 1510, ""amountexvat"": 1388, ""merchant_name"": ""Cafe Hinz Und Kunz"", ""date"": ""2020-10-30T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\lidle.jpg,"{""data"": {""rotation"": 0, ""amount"": 7513, ""amountexvat"": 7068, ""merchant_name"": ""Lidl"", ""date"": ""2020-11-07T00:00:00"", ""hash"": ""a_hash""}}"
 .\resource/sample_receipts\post.jpg,"{""data"": {""rotation"": 90, ""amount"": 550, ""amountexvat"": 550, ""merchant_name"": ""Deutsche Post"", ""date"": ""2020-11-30T00:00:00"", ""hash"": ""a_hash""}}"
