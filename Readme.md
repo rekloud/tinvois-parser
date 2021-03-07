@@ -5,8 +5,9 @@ amount excluding VAT and the merchant name.
 
 ## Why I made it?
 
-We wanted to develop an app called tinvois to help freelancers in tax declaration. It is
-available here: https://tinvois.de. We want to keep extra costs including 3rd party tools and marketing
+We wanted to develop an app called tinvois to help freelancers in tax declaration,
+specifically organizing receipts. It is
+available here: https://tinvois.de. We wanted to keep extra costs including 3rd party tools and marketing
 really low to be able to keep the price of the app small.
 
 One steps is to extract information from receipts photos. The open source solutions were not
@@ -100,6 +101,7 @@ latest commit in master branch of this repository.
 The API is accessible in localhost:5001. Enter it in your browser to see the swagger UI
 
 ## What else it can do
+
 * I added also endpoints for detecting edges of paper in the image and also making bird
     view of the document using the edges.
 
@@ -115,7 +117,8 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
     - https://preslav.me/2018/12/02/designing-well-structured-rest-apis-with-flask-restplus-part-1/
     - https://www.freecodecamp.org/news/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563/
 
-## TODO's
+## TODO's (not necessarily comprehensive)
+
 * Add some python code for testing the API
 * Extends the tests to proper unit tests
 * Prepare a runnable windows PowerShell docker command
