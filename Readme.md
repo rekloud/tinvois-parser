@@ -90,9 +90,9 @@ You can start the API locally either via python or docker desktop.
 * Run this commend
 ```
 docker run --name tinvois-parser -d \
-    -p 5005:5001 \
+    -p 5001:5001 \
     -v <path to folder containing google_auth.json>:/app/google_auth \
-    -e SERVER_TO_SERVER_TOKEN=<some string will be used as authorization token> \
+    -e SERVER_TO_SERVER_TOKEN=<some string which will be used as authorization token> \
     srhumir/tinvois-parser:latest
 ```
 It will pull the image from docker hub and run it. The "latest" tag always corresponds to the
