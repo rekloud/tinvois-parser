@@ -127,6 +127,8 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 * Improve how it gets the google json file so mounting a folder in the docker command is not
     necessary
 * Do proper image hashing
+* Guess the payment method of the receipt
+* Guess the category of the receipt (grocery, gas, travel etc.)
 * Extract merchant address (maybe using this approach https://doi.org/10.1145/2494188.2494193
   available for download here: ftp://www.kom.tu-darmstadt.de/papers/SMRS13-1.pdf)
 * Implement a small WebUI and deploy the API in a (free) server so that people can test it
