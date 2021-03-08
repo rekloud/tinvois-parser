@@ -43,7 +43,7 @@ class Receipt(BaseReceipt):
             amountexvat=self.get_netto(),
             merchant_name=self.get_merchant(),
             date=self.get_date(),
-            hash=self.get_image_hash(),
+            hash=get_image_hash(self.image_content),
             raw_text=base64.b64encode(self.df_ocr_raw.to_json(orient='index').encode()).decode()
         )
         if output['amount'] is None:
@@ -65,6 +65,7 @@ class Receipt(BaseReceipt):
     def get_brutto(self):
         return parse_brutto(self)
 
-    def get_image_hash(self):
-        # TODO do real image hashing
-        return str(uuid4())
+
+def get_image_hash(image_content):
+    # TODO do real image hashing
+    return str(uuid4())

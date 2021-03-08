@@ -55,7 +55,3 @@ class BaseReceipt(metaclass=ABCMeta):
     @abstractmethod
     def get_brutto(self):
         raise NotImplementedError()
-
-    @abstractmethod
-    def get_image_hash(self):
-        raise NotImplementedError()
