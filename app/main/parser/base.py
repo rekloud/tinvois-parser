@@ -13,7 +13,6 @@ class BaseReceipt(metaclass=ABCMeta):
         self.config = read_config()
         self.image_content = image_content
         self.df_ocr_raw = ocr_image(image_content)
-        self.number_of_netto_values = 4
         self.netto_amount = 0
 
     @abstractmethod
@@ -28,6 +27,10 @@ class BaseReceipt(metaclass=ABCMeta):
     @abstractmethod
     def fit(self):
         raise NotImplementedError()
+
+    @abstractmethod
+    def _get_height_of_line_in_receipt(self):
+        self.line_height: int = 0
 
     @abstractmethod
     def parse_all(self) -> dict:

@@ -23,9 +23,12 @@ class Receipt(BaseReceipt):
             logger.warning(msg)
             abort(400, msg)
         self.df_values['text2'] = self.df_values['text2'].astype(float)
+
+    def _get_height_of_line_in_receipt(self):
         self.line_height = np.median(self.df_ocr['3y'] - self.df_ocr['2y'])
 
     def fit(self) -> BaseReceipt:
+        self._get_height_of_line_in_receipt()
         extract_features_token(self)
         classify(self)
         parse_vat(self)
