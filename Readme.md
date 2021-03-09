@@ -15,7 +15,7 @@ good enough. There are commercial API's which either do not work or are too expe
 So I developed it myself.
 
 I can claim it is the best open source solution available.
-Considering that Google charges only 1.5$ for OCRing each 1K images, it is almost free.
+Considering that Google charges only 1.5$ for OCRing each 1K images, even give 1K calls per month for free, it is almost free.
 So let's make it really good.
 
 ## How it works
