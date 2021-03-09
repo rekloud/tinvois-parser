@@ -107,7 +107,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 
 ## Acknowledgements
 
-* The first ideas of how to parse came from here
+* The first ideas and some implementaion of how to parse came from here
     https://github.com/ReceiptManager/receipt-parser-legacy
 * I got the tokenizing idea from here
     https://medium.com/@Fivestars/receipt-parsing-via-machine-learning-1a3c495394d9
