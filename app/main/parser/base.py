@@ -1,5 +1,7 @@
 from abc import ABCMeta, abstractmethod
+
 from pandas import DataFrame
+
 from .ocr import ocr_image
 from .utils import read_config
 from ..utils import get_logger

@@ -1,12 +1,14 @@
 import re
-from typing import List
-import pandas as pd
 from difflib import get_close_matches
+from typing import List
+
+import pandas as pd
+
+from .rotate import rotate_df_ocr
+from .utils import merge_two_strings
 from ..base import BaseReceipt
 from ..ml_approach import tokenize
 from ..utils import get_close_matches_indexes
-from .rotate import rotate_df_ocr
-from .utils import merge_two_strings
 from ...utils import get_logger
 
 logger = get_logger(__file__)
