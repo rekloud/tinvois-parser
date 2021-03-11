@@ -15,7 +15,7 @@ good enough. There are commercial API's which either do not work or are too expe
 So I developed it myself.
 
 I can claim it is the best open source solution available.
-Considering that Google charges only 1.5$ for OCRing each 1K images, it is almost free.
+Considering that Google charges only 1.5$ for OCRing each 1K images, even give 1K calls per month for free, it is almost free.
 So let's make it really good.
 
 ## How it works
@@ -90,9 +90,9 @@ You can start the API locally either via python or docker desktop.
 * Run this commend
 ```
 docker run --name tinvois-parser -d \
-    -p 5005:5001 \
+    -p 5001:5001 \
     -v <path to folder containing google_auth.json>:/app/google_auth \
-    -e SERVER_TO_SERVER_TOKEN=<some string will be used as authorization token> \
+    -e SERVER_TO_SERVER_TOKEN=<some string which will be used as authorization token> \
     srhumir/tinvois-parser:latest
 ```
 It will pull the image from docker hub and run it. The "latest" tag always corresponds to the
@@ -107,7 +107,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 
 ## Acknowledgements
 
-* The first ideas of how to parse came from here
+* The first ideas and some implementaion of how to parse came from here
     https://github.com/ReceiptManager/receipt-parser-legacy
 * I got the tokenizing idea from here
     https://medium.com/@Fivestars/receipt-parsing-via-machine-learning-1a3c495394d9
@@ -127,6 +127,8 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 * Improve how it gets the google json file so mounting a folder in the docker command is not
     necessary
 * Do proper image hashing
+* Guess the payment method of the receipt
+* Guess the category of the receipt (grocery, gas, travel etc.)
 * Extract merchant address (maybe using this approach https://doi.org/10.1145/2494188.2494193
   available for download here: ftp://www.kom.tu-darmstadt.de/papers/SMRS13-1.pdf)
 * Implement a small WebUI and deploy the API in a (free) server so that people can test it
