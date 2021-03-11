@@ -37,3 +37,22 @@ class EdgeDetectorDto:
                                                           'of integers ')})
     headers = api.parser(). \
         add_argument('Authorization', location='headers', help='server to server token')
+
+
+class BirdViewDto:
+    api = Namespace('bird_view', description='make an bird view of the image using edges',
+                    authorizations=authorizations)
+    # TODO should be possible to specify exact output type via fields.List in both
+    image = api.model('image_and_points',
+                      {'image': fields.String(required=True,
+                                              description='base64 encode content of the image'),
+                       'points': fields.Raw(required=True,
+                                            description='coordinate of edges as a 4x2 list '
+                                                        'of integers ')
+                       })
+    response = api.model('bird_view_response',
+                         {'data': fields.String(required=True,
+                                               description='base64 encode content of the '
+                                                           'transformed image')})
+    headers = api.parser(). \
+        add_argument('Authorization', location='headers', help='server to server token')
