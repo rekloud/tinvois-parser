@@ -4,3 +4,4 @@ app/main/__pycache__/
 *.pyc
 app/google_auth/
 app/main/.env
+examples/.ipynb_checkpoints/*
