@@ -68,4 +68,4 @@ class Receipt(BaseReceipt):
 
 def get_image_hash(image_content):
     # TODO do real image hashing
-    return str(uuid4())
+    return str(uuid4()) + ' !!!This is currently a uuid. Plan to do image hashing!!!'
