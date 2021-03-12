@@ -15,7 +15,7 @@ good enough. There are commercial API's which either do not work or are too expe
 So I developed it myself.
 
 I can claim it is the best open source solution available.
-Considering that Google charges only 1.5$ for OCRing each 1K images, even give 1K calls per month for free, it is almost free.
+Considering that Google charges only 1.5$ for OCRing each 1K images, even gives 1K calls per month for free, it is almost free.
 So let's make it really good.
 
 ## How it works
@@ -35,7 +35,7 @@ In the following steps
     - For each value, extract a feature set. Namely tokens that appear in front of it,
       behind it, or on top of it.
 * Extract information as follows
-    - Date: get the date string via string matching. I just look for the first string I find.
+    - Date: get the date string via string matching. I just look for the first match I find.
     - Total amount and amount excluding vat: Writing rules using features extracted in the
         preprocessing step.
         Why not machine learning? Because I did not have data to train.
@@ -103,7 +103,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 ## What else it can do
 
 * I added also endpoints for detecting edges of paper in the image and also making bird
-    view of the document using the edges.
+    view of the document using the edges. See the  [example jupyter notebook](./examples/try%20endpoints.ipynb) for an example.
 
 ## Acknowledgements
 
@@ -119,7 +119,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 
 ## TODO's (not necessarily comprehensive)
 
-* Add some python code for testing the API
+* ~~Add some python code for testing the API~~
 * Run tests using github actions on commit
 * Extend the tests to proper unit tests
 * Prepare a runnable windows PowerShell docker command
