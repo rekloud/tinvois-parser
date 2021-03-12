@@ -74,8 +74,9 @@ You can start the API locally either via python or docker desktop.
 
 ### Common steps
 
-* Get a Google Cloud Platform account
-* Get access json file to Vision API. Rename it to google_auth.json
+* [Get a Google Cloud Platform account](https://cloud.google.com/vision/docs/setup)
+* [Get access json file to Vision API](https://cloud.google.com/vision/docs/libraries).
+  Rename it to google_auth.json
 
 ### Using python
 
