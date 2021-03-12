@@ -34,4 +34,5 @@ def show_image(image_path, figsize=(10, 7)):
 
 
 def show_edges(ax, edges):
-    ax.plot([e[0] for e in edges], [e[1] for e in edges], color='green')
+    ax.plot([e[0] for e in edges] + [edges[0][0]], [e[1] for e in edges] + [edges[0][1]],
+            color='green')
