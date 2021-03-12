@@ -6,11 +6,11 @@ WORKDIR /app
 RUN useradd -ms /bin/bash taxapp && \
   apt-get update && apt-get install curl unixodbc-dev gnupg2 --yes
 
-RUN apt-get update
-RUN apt-get install nano
+RUN apt-get install nano && \
+    apt-get install libgl1-mesa-glx --yes
 
 COPY --chown=taxapp app .
-RUN mkdir google_auth
+RUN mkdir -p google_auth
 RUN pip install -r ./requirements.txt
 
 USER taxapp

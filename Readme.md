@@ -86,7 +86,9 @@ You can start the API locally either via python or docker desktop.
   custom string. It will be the authorization token for calling the API
 * In terminal navigate to app folder and run python .\manage-local.py
     
-### Using docker (won't work in windows as mounting folder is not possible)
+### Using docker there are two options
+
+#### Option1 (won't work in windows as mounting folder is not possible)
 
 * Put the google_auth.json in a folder
 * Run this commend
@@ -95,6 +97,23 @@ docker run --name tinvois-parser -d \
     -p 5001:5001 \
     -v <path to folder containing google_auth.json>:/app/google_auth \
     -e SERVER_TO_SERVER_TOKEN=<some string which will be used as authorization token> \
+    -e BIND=0.0.0.0:5001 \
+    -e MODULE_NAME=manage \
+    -e WEB_CONCURRENCY=2 \
+    srhumir/tinvois-parser:latest
+```
+#### Option 2
+
+* Base64 encode the content of google_auth.json
+* Run this commend (you might need to remove "\"'s and put the whole command in one line in windows)
+```
+docker run --name tinvois-parser -d \
+    -p 5001:5001 \
+    -e GOOGLE_AUTH=<the base64 encoded string you get above> \
+    -e SERVER_TO_SERVER_TOKEN=<some string which will be used as authorization token> \
+    -e BIND=0.0.0.0:5001 \
+    -e MODULE_NAME=manage \
+    -e WEB_CONCURRENCY=2 \
     srhumir/tinvois-parser:latest
 ```
 It will pull the image from docker hub and run it. The "latest" tag always corresponds to the
@@ -125,10 +144,10 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 * ~~Add some python code for testing the API~~
 * Run tests using github actions on commit
 * Extend the tests to proper unit tests
-* Prepare a runnable windows PowerShell docker command
+* ~~Prepare a runnable windows PowerShell docker command~~
 * Make it to be able to use Azure OCR API
-* Improve how it gets the google json file so mounting a folder in the docker command is not
-    necessary
+* ~~Improve how it gets the google json file so mounting a folder in the docker command is not
+    necessary~~
 * Do proper image hashing
 * Guess the payment method of the receipt
 * Guess the category of the receipt (grocery, gas, travel etc.)
