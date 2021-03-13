@@ -20,4 +20,6 @@ class ParseImage(Resource):
     def get(self):
         """parse a receipt in image format. No pdf"""
         data = request.json
-        return parse_image(data['image'])
+        output_edited_image = data.get('edit_image', False)
+        try_auto_edit = data.get('try_auto_edit', True)
+        return parse_image(data['image'], output_edited_image, try_auto_edit)

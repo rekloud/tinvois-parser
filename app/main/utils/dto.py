@@ -14,11 +14,22 @@ class ParseDto:
                     authorizations=authorizations)
     image = api.model('image',
                       {'image': fields.String(required=True,
-                                              description='base64 encode content of the image')
+                                              description='base64 encode content of the image'),
+                       'edit_image': fields.Boolean(required=False,
+                                                    description='Return the automatically edited'
+                                                                'to bird view of image'),
+                       'try_auto_edit': fields.Boolean(required=False,
+                                                       description='Should the parser try to '
+                                                                   'aut detect the edges and retry'
+                                                                   'parsing if failed')
                        })
     response = api.model('parse_response',
                          {'data': fields.Raw(required=True,
-                                             description='json with parse results')})
+                                             description='json with parse results'),
+                          # 'image': fields.String(required=False,
+                          #                        description='base64 encode content of the edited '
+                          #                                    'image')
+                          })
     headers = api.parser(). \
         add_argument('Authorization', location='headers', help='server to server token')
 
@@ -33,8 +44,8 @@ class EdgeDetectorDto:
     # TODO should be possible to specify exact output type via fields.List
     response = api.model('edge_detector_response',
                          {'data': fields.Raw(required=True,
-                                              description='coordinate of edges as a 4x2 list '
-                                                          'of integers ')})
+                                             description='coordinate of edges as a 4x2 list '
+                                                         'of integers ')})
     headers = api.parser(). \
         add_argument('Authorization', location='headers', help='server to server token')
 
@@ -52,7 +63,7 @@ class BirdViewDto:
                        })
     response = api.model('bird_view_response',
                          {'data': fields.String(required=True,
-                                               description='base64 encode content of the '
-                                                           'transformed image')})
+                                                description='base64 encode content of the '
+                                                            'transformed image')})
     headers = api.parser(). \
         add_argument('Authorization', location='headers', help='server to server token')
