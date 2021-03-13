@@ -3,8 +3,8 @@
 An API to extract information from images of invoices/receipts. It extracts date, total amount,
 amount excluding VAT and the merchant name.
 
-Try it here: https://tinvois-parser.azurewebsites.net
-See [example jupyter notebook](./examples/try%20endpoints.ipynb) for example how to call.
+Try it here: https://tinvois-parser.azurewebsites.net. (http://tinvois-parser.azurewebsites.net shows the swagger UI). The authorization token is "github_users".
+See [example jupyter notebook](./examples/try%20endpoints.ipynb) for sample code how to call.
 
 ## Why I made it?
 
@@ -146,19 +146,19 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 
 ## TODO's (not necessarily comprehensive)
 
-* ~~Add some python code for testing the API~~
-* ~~Improve how it gets the google json file so mounting a folder in the docker command is not
-    necessary~~
-* ~~Prepare a runnable windows PowerShell docker command~~
-* ~~Optionally return automatically edited image in parse endpoint~~
-* ~~Deploy the API in a (free) server so that people can test it~~
+* Do proper image hashing
 * Extend the tests to proper unit tests
 * Run tests using github actions on commit
 * Make it to be able to use Azure OCR API
-* Do proper image hashing
 * Guess the payment method of the receipt
 * Guess the category of the receipt (grocery, gas, travel etc.)
 * Extract merchant address (maybe using this approach https://doi.org/10.1145/2494188.2494193
   available for download [ftp://www.kom.tu-darmstadt.de/papers/SMRS13-1.pdf](ftp://www.kom.tu-darmstadt.de/papers/SMRS13-1.pdf))
 * Implement a small WebUI
 * Produce data for training ML algorithm
+* ~~Add some python code for testing the API~~
+* ~~Improve how it gets the google json file so mounting a folder in the docker command is not
+    necessary~~
+* ~~Prepare a runnable windows PowerShell docker command~~
+* ~~Optionally return automatically edited image in parse endpoint~~
+* ~~Deploy the API in a (free) server so that people can test it~~
