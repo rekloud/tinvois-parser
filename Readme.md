@@ -5,7 +5,7 @@ amount excluding VAT and the merchant name.
 
 ## Why I made it?
 
-We wanted to develop an app called tinvois to help freelancers in tax declaration,
+We wanted to develop an app to help freelancers in tax declaration,
 specifically organizing receipts. It is available here: https://tinvois.de. We wanted to keep extra
 costs including 3rd party tools and marketing really low to be able to keep the price of
 the app small.
@@ -14,7 +14,6 @@ One steps is to extract information from receipts photos. The open source soluti
 good enough. There are commercial API's which either do not work or are too expensive or both.
 So I developed it myself.
 
-I can claim it is the best open source solution available.
 Considering that Google charges only 1.5$ for OCRing each 1K images, even gives 1K calls per month for free, it is almost free.
 So let's make it really good.
 
@@ -22,8 +21,8 @@ So let's make it really good.
 
 In the following steps
 
-* Send the image to google Cloud Vision API to extract text
-* Put the results in a pandas DataFrame (I am a data scientist, I love DataFrames :))
+* Sending the image to google Cloud Vision API to extract text
+* Puting the results in a pandas DataFrame (I am a data scientist, I love DataFrames :))
 * Preprocess the results as follows
     - Lower case all the strings
     - Join some words that we know come after each other and are meaningful together
@@ -34,7 +33,7 @@ In the following steps
     - Detect the rotation and rotate the coordinates back to vertical
     - For each value, extract a feature set. Namely tokens that appear in front of it,
       behind it, or on top of it.
-* Extract information as follows
+* Extracting information as follows
     - Date: get the date string via string matching. I just look for the first match I find.
     - Total amount and amount excluding vat: Writing rules using features extracted in the
         preprocessing step.
@@ -86,9 +85,11 @@ You can start the API locally either via python or docker desktop.
   custom string. It will be the authorization token for calling the API
 * In terminal navigate to app folder and run python .\manage-local.py
     
-### Using docker there are two options
+### Using docker 
 
-#### Option1 (won't work in windows as mounting folder is not possible)
+There are two options
+
+#### Option 1 (won't work in windows as mounting folder is not possible)
 
 * Put the google_auth.json in a folder
 * Run this commend
@@ -102,10 +103,11 @@ docker run --name tinvois-parser -d \
     -e WEB_CONCURRENCY=2 \
     srhumir/tinvois-parser:latest
 ```
+
 #### Option 2
 
 * Base64 encode the content of google_auth.json
-* Run this commend (you might need to remove "\"'s and put the whole command in one line in windows)
+* Run this commend (you might need to remove "\\"'s and put the whole command in one line in Windows)
 ```
 docker run --name tinvois-parser -d \
     -p 5001:5001 \
@@ -129,7 +131,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 
 ## Acknowledgements
 
-* The first ideas and some implementation how to parse came from here
+* The first ideas and some implementation such as data and merchant parsing came from here
     https://github.com/ReceiptManager/receipt-parser-legacy
 * I got the tokenizing idea from here
     https://medium.com/@Fivestars/receipt-parsing-via-machine-learning-1a3c495394d9
@@ -142,6 +144,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 ## TODO's (not necessarily comprehensive)
 
 * ~~Add some python code for testing the API~~
+* Optionally return automatically edited image in parse endpoint
 * Run tests using github actions on commit
 * Extend the tests to proper unit tests
 * ~~Prepare a runnable windows PowerShell docker command~~
