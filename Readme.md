@@ -144,7 +144,7 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 ## TODO's (not necessarily comprehensive)
 
 * ~~Add some python code for testing the API~~
-* Optionally return automatically edited image in parse endpoint
+* ~~Optionally return automatically edited image in parse endpoint~~
 * Run tests using github actions on commit
 * Extend the tests to proper unit tests
 * ~~Prepare a runnable windows PowerShell docker command~~

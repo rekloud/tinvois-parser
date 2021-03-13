@@ -26,9 +26,9 @@ class ParseDto:
     response = api.model('parse_response',
                          {'data': fields.Raw(required=True,
                                              description='json with parse results'),
-                          # 'image': fields.String(required=False,
-                          #                        description='base64 encode content of the edited '
-                          #                                    'image')
+                          'image': fields.String(required=False,
+                                                 description='base64 encode content of the edited '
+                                                             'image')
                           })
     headers = api.parser(). \
         add_argument('Authorization', location='headers', help='server to server token')
