@@ -17,8 +17,8 @@ One steps is to extract information from receipts photos. The open source soluti
 good enough. There are commercial API's which either do not work or are too expensive or both.
 So I developed it myself.
 
-Considering that Google charges only 1.5$ for OCRing each 1K images, even gives 1K calls per month for free, it is almost free.
-So let's make it really good.
+Considering that Google charges only 1.5$ for OCRing each 1K images, even gives 1K calls per month
+for free, it is almost free. So let's make it really good.
 
 ## How it works
 

@@ -16,6 +16,7 @@ class BaseReceipt(metaclass=ABCMeta):
         self.image_content = image_content
         self.df_ocr_raw = ocr_image(image_content)
         self.netto_amount = 0
+        self.merchant_from_list = False
 
     @abstractmethod
     def preprocess(self):

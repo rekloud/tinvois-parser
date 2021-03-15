@@ -18,7 +18,7 @@ class TestParser(unittest.TestCase):
         mock_hash.return_value = 'a_hash'
         failed_cases = []
         for i, image, expected in expected_results.itertuples():
-            actual, code = parse_image(get_image_content(image))
+            actual, code = parse_image(get_image_content(image), False, True)
             actual['data'].pop('raw_text')
             actual_str = json.dumps(actual)
             file_name = os.path.split(image)[1]
@@ -42,12 +42,12 @@ class TestParser(unittest.TestCase):
     def test_fail_when_no_text_in_image(self, mock_hash):
         image_with_no_text = './resource/sample_receipts/alaki.jpg'
         self.assertRaises(werkzeug.exceptions.BadRequest,
-                          parse_image, get_image_content(image_with_no_text))
+                          parse_image, get_image_content(image_with_no_text), False, True)
 
     def test_fail_when_no_value_in_image(self, mock_hash):
         image_with_no_text = './resource/sample_receipts/no_value.jpg'
         self.assertRaises(werkzeug.exceptions.BadRequest,
-                          parse_image, get_image_content(image_with_no_text))
+                          parse_image, get_image_content(image_with_no_text), False, True)
 
 
 def get_image_content(image_path):
