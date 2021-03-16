@@ -17,7 +17,7 @@ class ParseImage(Resource):
     @api.doc(security='SERVER_TO_SERVER_TOKEN')
     @api.expect(_image)
     @sever_to_server_token_required
-    def get(self):
+    def post(self):
         """detect edges of document in image. No pdf"""
         data = request.json
         return bird_view(data['image'], data['points'])

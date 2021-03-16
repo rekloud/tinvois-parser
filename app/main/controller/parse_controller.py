@@ -17,7 +17,7 @@ class ParseImage(Resource):
     @api.doc(security='SERVER_TO_SERVER_TOKEN')
     @api.expect(_image)
     @sever_to_server_token_required
-    def get(self):
+    def post(self):
         """parse a receipt in image format. No pdf"""
         data = request.json
         output_edited_image = data.get('edit_image', False)
