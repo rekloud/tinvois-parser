@@ -1,13 +1,17 @@
 import base64
+import io
+
 import numpy as np
-from uuid import uuid4
+from PIL import Image
 from flask_restplus import abort
+from imagehash import average_hash
+
 from .base import BaseReceipt
-from .preprocessing import pre_process_ocr_results
-from .ml_approach import extract_features_token, classify, parse_vat, parse_sum, parse_netto, \
-    parse_brutto
 from .date_parser import parse_date
 from .merchant_parser import parse_merchant
+from .ml_approach import extract_features_token, classify, parse_vat, parse_sum, parse_netto, \
+    parse_brutto
+from .preprocessing import pre_process_ocr_results
 from ..utils import get_logger
 
 logger = get_logger(__file__)
@@ -67,5 +71,5 @@ class Receipt(BaseReceipt):
 
 
 def get_image_hash(image_content):
-    # TODO do real image hashing
-    return str(uuid4()) + ' !!!This is currently a uuid. Plan to do image hashing!!!'
+    image_hash = average_hash(Image.open(io.BytesIO(image_content)), hash_size=8)
+    return str(image_hash)

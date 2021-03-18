@@ -29,3 +29,4 @@ opencv-python==4.5.1.48
 scikit-image==0.18.1
 imutils==0.5.4
 rdp==0.8
+imagehash==4.2.0

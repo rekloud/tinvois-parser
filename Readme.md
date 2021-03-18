@@ -64,8 +64,7 @@ In the following steps
         "amountexvat": 205,
         "merchant_name": "Penny",
         "date": "2020-12-04T00:00:00",
-        "hash": "34f8870f-e478-490e-ae45-3ce5c438a895 !!!This is currently a uuid. Plan to do
-        image hashing!!!
+        "hash": "0000000000000000071f7fffffffffffffbfffbefffefffbffff001f0000f800"
     }
 }
 ```
@@ -146,16 +145,16 @@ The API is accessible in localhost:5001. Enter it in your browser to see the swa
 
 ## TODO's (not necessarily comprehensive)
 
-* Do proper image hashing
+* Guess the category of the receipt (grocery, gas, travel etc.)
+* Guess the payment method of the receipt
 * Extend the tests to proper unit tests
 * Run tests using github actions on commit
 * Make it to be able to use Azure OCR API
-* Guess the payment method of the receipt
-* Guess the category of the receipt (grocery, gas, travel etc.)
 * Extract merchant address (maybe using this approach https://doi.org/10.1145/2494188.2494193
   available for download [ftp://www.kom.tu-darmstadt.de/papers/SMRS13-1.pdf](ftp://www.kom.tu-darmstadt.de/papers/SMRS13-1.pdf))
 * Implement a small WebUI
 * Produce data for training ML algorithm
+* ~~Do proper image hashing~~
 * ~~Add some python code for testing the API~~
 * ~~Improve how it gets the google json file so mounting a folder in the docker command is not
     necessary~~
