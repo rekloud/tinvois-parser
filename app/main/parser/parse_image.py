@@ -71,5 +71,5 @@ class Receipt(BaseReceipt):
 
 
 def get_image_hash(image_content):
-    image_hash = average_hash(Image.open(io.BytesIO(image_content)), hash_size=8)
+    image_hash = average_hash(Image.open(io.BytesIO(image_content)), hash_size=12)
     return str(image_hash)
