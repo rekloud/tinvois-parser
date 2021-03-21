@@ -55,7 +55,7 @@ def merge_parse_results(res1: dict, receipt1: Receipt,
     update_dict = dict(
         amount=max_none(res1['amount'], res2['amount']),
         amountexvat=max_none(res1['amountexvat'], res2['amountexvat']),
-        date=res1['date'] or res2['date'],
+        date=res2['date'] or res1['date'],
         merchant_name=merge_merchant(res1, receipt1, res2, receipt2),
     )
     res1.update(update_dict)
@@ -75,4 +75,4 @@ def merge_merchant(res1: dict, receipt1: Receipt,
         return res1['merchant_name']
     if receipt2.merchant_from_list:
         return res2['merchant_name']
-    return res1['merchant_name']
+    return res2['merchant_name']
