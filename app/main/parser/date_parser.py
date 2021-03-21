@@ -1,16 +1,21 @@
 import re
+
 import dateutil
-from ..utils import get_logger
+import datetime
+
 from .base import BaseReceipt
+from ..utils import get_logger
 
 logger = get_logger(__file__)
+default_date = datetime.datetime.now().replace(year=1900, hour=0, minute=0,
+                                               second=0, microsecond=0)
 
 
 def parse_date(receipt: BaseReceipt) -> str:
     date_parsers = [
-        regex_date_parser,
+        regex_date_parser_direct_dateutils,
+        # regex_date_parser,
         regex_date_parser_from_full_text,
-        regex_date_parser_direct_dateutils
     ]
     for date_parser in date_parsers:
         date_string = date_parser(receipt)
@@ -29,8 +34,10 @@ def regex_date_parser(receipt: BaseReceipt) -> str or None:
                 if len(date_str) < 6:
                     logger.debug(f'date_str dateutil: {date_str} too short')
                 logger.debug(f'date_str: {date_str}')
+                detected_date = dateutil.parser.parse(date_str, dayfirst=True, default=default_date)
+                validate_detected_date(detected_date)
                 logger.info(f'date parsed using individual rows {date_str}')
-                return dateutil.parser.parse(date_str, dayfirst=True).isoformat()
+                return detected_date.isoformat()
             except Exception as e:
                 logger.warning(f'Failed to parse a date {str(e)}')
                 continue
@@ -42,12 +49,10 @@ def regex_date_parser_from_full_text(receipt: BaseReceipt) -> str or None:
         try:
             date_str = date_str.replace(" ", "")
             logger.debug(f'date_str: {date_str}')
-            parsed_date = dateutil.parser.parse(date_str, dayfirst=True)
-            if parsed_date.year > 1990:
-                logger.info(f'date parsed using full rows {date_str}')
-                return parsed_date.isoformat()
-            else:
-                continue
+            parsed_date = dateutil.parser.parse(date_str, dayfirst=True, default=default_date)
+            validate_detected_date(parsed_date)
+            logger.info(f'date parsed using full rows {date_str}')
+            return parsed_date.isoformat()
         except Exception as e:
             logger.warning(f'sth went wrong in date parser {e}')
             pass
@@ -62,9 +67,16 @@ def regex_date_parser_direct_dateutils(receipt: BaseReceipt) -> str or None:
                 logger.debug(f'date_str dateutil: {date_str} too short')
                 continue
             logger.debug(f'date_str dateutil: {date_str}')
-            d = dateutil.parser.parse(date_str, dayfirst=True).isoformat()
+            detected_date = dateutil.parser.parse(date_str, dayfirst=True, default=default_date)
+            validate_detected_date(detected_date)
             logger.info(f'date parsed using individual rows dateutils {date_str}')
-            return d
+            return detected_date.isoformat()
         except Exception as e:
             logger.warning(f'Failed to parse a date dateutils {str(e)}')
             continue
+
+
+def validate_detected_date(detected_date):
+    detected_year = detected_date.year
+    if detected_year < 1990 or detected_year > (datetime.date.today().year + 2):
+        raise Exception(f'invalid year {detected_date.year}')
