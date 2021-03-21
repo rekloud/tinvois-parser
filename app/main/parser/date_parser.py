@@ -20,11 +20,12 @@ def parse_date(receipt: BaseReceipt) -> str:
     for date_parser in date_parsers:
         date_string = date_parser(receipt)
         if date_string is not None:
-            return date_string
+            return date_string.replace(hour=0, minute=0,
+                                       second=0, microsecond=0).isoformat()
     logger.warning('could not parse date')
 
 
-def regex_date_parser(receipt: BaseReceipt) -> str or None:
+def regex_date_parser(receipt: BaseReceipt) -> datetime.datetime or None:
     for row in receipt.df_ocr.iloc[1:, :].itertuples():
         match = re.match(receipt.config['date_format'], row.text)
         if match:
@@ -37,13 +38,13 @@ def regex_date_parser(receipt: BaseReceipt) -> str or None:
                 detected_date = dateutil.parser.parse(date_str, dayfirst=True, default=default_date)
                 validate_detected_date(detected_date)
                 logger.info(f'date parsed using individual rows {date_str}')
-                return detected_date.isoformat()
+                return detected_date
             except Exception as e:
                 logger.warning(f'Failed to parse a date {str(e)}')
                 continue
 
 
-def regex_date_parser_from_full_text(receipt: BaseReceipt) -> str or None:
+def regex_date_parser_from_full_text(receipt: BaseReceipt) -> datetime.datetime or None:
     matches = re.findall(receipt.config['date_format2'], receipt.df_ocr.iloc[0, :].text)
     for date_str in matches:
         try:
@@ -52,13 +53,13 @@ def regex_date_parser_from_full_text(receipt: BaseReceipt) -> str or None:
             parsed_date = dateutil.parser.parse(date_str, dayfirst=True, default=default_date)
             validate_detected_date(parsed_date)
             logger.info(f'date parsed using full rows {date_str}')
-            return parsed_date.isoformat()
+            return parsed_date
         except Exception as e:
             logger.warning(f'sth went wrong in date parser {e}')
             pass
 
 
-def regex_date_parser_direct_dateutils(receipt: BaseReceipt) -> str or None:
+def regex_date_parser_direct_dateutils(receipt: BaseReceipt) -> datetime.datetime or None:
     for row in receipt.df_ocr.iloc[1:, :].itertuples():
         try:
             date_str = row.text
@@ -70,7 +71,7 @@ def regex_date_parser_direct_dateutils(receipt: BaseReceipt) -> str or None:
             detected_date = dateutil.parser.parse(date_str, dayfirst=True, default=default_date)
             validate_detected_date(detected_date)
             logger.info(f'date parsed using individual rows dateutils {date_str}')
-            return detected_date.isoformat()
+            return detected_date
         except Exception as e:
             logger.warning(f'Failed to parse a date dateutils {str(e)}')
             continue

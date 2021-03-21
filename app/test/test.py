@@ -32,6 +32,10 @@ class TestParser(unittest.TestCase):
             print(len(failed_cases), 'has been failed')
             for file_name, _actual, _expected in failed_cases:
                 print(file_name)
+                _actual = json.loads(_actual)
+                _actual['data'].pop('raw_text')
+                _expected = json.loads(_expected)
+                _expected['data'].pop('raw_text')
                 print('actual  ', _actual)
                 print('expected', _expected)
             assert False

@@ -23,4 +23,5 @@ def regex_merchant_parser(receipt: BaseReceipt) -> str or None:
             if matches:
                 receipt.merchant_from_list = True
                 return market
-    return string.capwords(receipt.df_ocr.loc[0, 'text'].split('\n')[0])
+    return string.capwords(receipt.df_ocr.loc[0, 'text'].split('\n')[0]
+        .strip().strip('-').strip('_').strip('/').strip('\\').strip('*').strip('#').strip())
