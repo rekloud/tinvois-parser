@@ -18,10 +18,10 @@ def parse_date(receipt: BaseReceipt) -> str:
         regex_date_parser_from_full_text,
     ]
     for date_parser in date_parsers:
-        date_string = date_parser(receipt)
-        if date_string is not None:
-            return date_string.replace(hour=0, minute=0,
-                                       second=0, microsecond=0).isoformat()
+        detected_date = date_parser(receipt)
+        if detected_date is not None:
+            return detected_date.replace(hour=0, minute=0,
+                                         second=0, microsecond=0).isoformat()
     logger.warning('could not parse date')
 
 
@@ -73,7 +73,7 @@ def regex_date_parser_direct_dateutils(receipt: BaseReceipt) -> datetime.datetim
             logger.info(f'date parsed using individual rows dateutils {date_str}')
             return detected_date
         except Exception as e:
-            logger.warning(f'Failed to parse a date dateutils {str(e)}')
+            logger.debug(f'Failed to parse a date dateutils {str(e)}')
             continue
 
 
