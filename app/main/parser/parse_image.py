@@ -3,7 +3,7 @@ import io
 
 import numpy as np
 from PIL import Image
-from flask_restplus import abort
+from flask_restx import abort
 from imagehash import average_hash
 
 from .base import BaseReceipt

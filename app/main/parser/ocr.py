@@ -1,7 +1,7 @@
 from google.cloud import vision
 import numpy as np
 import pandas as pd
-from flask_restplus import abort
+from flask_restx import abort
 from ..utils.log import get_logger
 
 client = vision.ImageAnnotatorClient()

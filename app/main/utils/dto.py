@@ -1,4 +1,4 @@
-from flask_restplus import Namespace, fields
+from flask_restx import Namespace, fields
 
 authorizations = {
     'SERVER_TO_SERVER_TOKEN': {

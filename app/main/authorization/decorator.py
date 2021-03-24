@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request
-from flask_restplus import abort
+from flask_restx import abort
 
 from ..config import SERVER_TO_SERVER_TOKEN
 from ..utils.log import get_logger

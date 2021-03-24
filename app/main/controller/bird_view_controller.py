@@ -1,5 +1,5 @@
 from flask import request
-from flask_restplus import Resource
+from flask_restx import Resource
 
 from ..authorization import sever_to_server_token_required
 from ..service.bird_view_service import bird_view
