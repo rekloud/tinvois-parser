@@ -35,10 +35,10 @@ image = r'C:\Users\shossein\Downloads\Telegram Desktop\2021\mostafa2.jpg'
 # image = r'C:\Users\shossein\Pictures\2020\2\2020-02-29-1.jpeg'
 # image = r'C:\Users\shossein\Pictures\2020\8\2020-08-28-1.jpeg'
 # image = r'C:\Users\shossein\Pictures\2020\9\2020-09-07-1.jpeg'
-image = r'C:\Users\shossein\Documents\personal\taxapp\parser\app\test\resource\sample_receipts\kaufland_vertical.jpg'
+image = r'C:\Users\shossein\Documents\personal\taxapp\parser\app\test\resource\sample_receipts\fritten.jpg'
 image_content = get_image_content(image)
 # print(image_content)
-actual, code = parse_image(image_content)
+actual, code = parse_image(image_content, False, True)
 actual['data'].pop('raw_text')
 actual_str = json.dumps(actual)
 print(image, flush=True)

@@ -1,7 +1,9 @@
-from typing import List
 import base64
-import numpy as np
+from typing import List
+
 import cv2
+import numpy as np
+
 from ..image_edit import PaperEdgeDetector
 from ..utils.log import get_logger
 

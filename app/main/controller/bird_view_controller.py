@@ -11,13 +11,13 @@ _response = BirdViewDto.response
 _header = BirdViewDto.headers
 
 
-@api.route('')
+@api.route("")
 class ParseImage(Resource):
     @api.marshal_with(_response)
-    @api.doc(security='SERVER_TO_SERVER_TOKEN')
+    @api.doc(security="SERVER_TO_SERVER_TOKEN")
     @api.expect(_image)
     @sever_to_server_token_required
     def post(self):
         """detect edges of document in image. No pdf"""
         data = request.json
-        return bird_view(data['image'], data['points'])
+        return bird_view(data["image"], data["points"])

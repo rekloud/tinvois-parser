@@ -10,7 +10,7 @@ logger = get_logger(__file__)
 
 
 class BaseReceipt(metaclass=ABCMeta):
-    def __init__(self, image_content, cutoff=.8):
+    def __init__(self, image_content, cutoff=0.8):
         self.cutoff = cutoff
         self.config = read_config()
         self.image_content = image_content
@@ -23,7 +23,7 @@ class BaseReceipt(metaclass=ABCMeta):
         self.df_ocr: DataFrame = DataFrame()
         self.rotation: int = 0
         self.df_values: DataFrame = DataFrame()
-        self.df_values['text2']: DataFrame = DataFrame()
+        self.df_values["text2"]: DataFrame = DataFrame()
         self.line_height: int = 0
         raise NotImplementedError()
 

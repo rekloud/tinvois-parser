@@ -1,6 +1,7 @@
 import base64
-from .edge_detector_service import get_edges
+
 from .bird_view_service import get_bird_view
+from .edge_detector_service import get_edges
 from ..parser import Receipt
 from ..utils.log import get_logger
 
@@ -11,15 +12,16 @@ def parse_image(image: str, output_edited_image: bool, try_auto_edit: bool) -> (
     image_content = base64.b64decode(image)
     receipt_orig = Receipt(image_content=image_content)
     parsed_orig = receipt_orig.parse_all()
-    bird_view_image = auto_bird_view(image_content)
     if not validate_parsed_results(parsed_orig) and try_auto_edit:
         try:
+            bird_view_image = auto_bird_view(image_content)
             receipt_bird_view = Receipt(image_content=bird_view_image)
             parsed_bird_view = receipt_bird_view.parse_all()
-            data = merge_parse_results(parsed_orig, receipt_orig,
-                                       parsed_bird_view, receipt_bird_view)
+            data = merge_parse_results(
+                parsed_orig, receipt_orig, parsed_bird_view, receipt_bird_view
+            )
         except Exception as e:
-            logger.info(f'failed for auto bird view image {e}')
+            logger.info(f"failed for auto bird view image {e}")
             data = parsed_orig
     else:
         data = parsed_orig
@@ -34,28 +36,27 @@ def auto_bird_view(image_content: bytes):
         bird_view_image = get_bird_view(image_content, edges)
         return bytes(bird_view_image)
     except Exception as e:
-        logger.critical(f'auto bird view failed {e}')
-        return bytes('failed'.encode())
+        logger.critical(f"auto bird view failed {e}")
+        return bytes("failed".encode())
 
 
 def validate_parsed_results(pared_result: dict) -> bool:
     # FIXME this version always returns False. Can consider more exact validation and do not
     # auto bird view in some cases
-    if pared_result['amount'] is None:
+    if pared_result["amount"] is None:
         return False
-    if pared_result['amountexvat'] is None:
+    if pared_result["amountexvat"] is None:
         return False
-    if pared_result['date'] is None:
+    if pared_result["date"] is None:
         return False
     return False
 
 
-def merge_parse_results(res1: dict, receipt1: Receipt,
-                        res2: dict, receipt2: Receipt) -> dict:
+def merge_parse_results(res1: dict, receipt1: Receipt, res2: dict, receipt2: Receipt) -> dict:
     update_dict = dict(
-        amount=max_none(res1['amount'], res2['amount']),
-        amountexvat=max_none(res1['amountexvat'], res2['amountexvat']),
-        date=res1['date'] or res2['date'],
+        amount=max_none(res1["amount"], res2["amount"]),
+        amountexvat=max_none(res1["amountexvat"], res2["amountexvat"]),
+        date=res1["date"] or res2["date"],
         merchant_name=merge_merchant(res1, receipt1, res2, receipt2),
     )
     res1.update(update_dict)
@@ -69,10 +70,9 @@ def max_none(a, b):
         return a or b
 
 
-def merge_merchant(res1: dict, receipt1: Receipt,
-                   res2: dict, receipt2: Receipt):
+def merge_merchant(res1: dict, receipt1: Receipt, res2: dict, receipt2: Receipt):
     if receipt1.merchant_from_list:
-        return res1['merchant_name']
+        return res1["merchant_name"]
     if receipt2.merchant_from_list:
-        return res2['merchant_name']
-    return res1['merchant_name']
+        return res2["merchant_name"]
+    return res1["merchant_name"]

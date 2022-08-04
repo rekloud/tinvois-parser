@@ -1,9 +1,9 @@
-from rdp import rdp
-from .utils import order_points, get_polygon_area
-from .visualization import draw_contours
-import numpy as np
 import cv2
 import imutils
+import numpy as np
+from rdp import rdp
+
+from .utils import order_points, get_polygon_area
 
 
 class PaperEdgeDetector:
@@ -39,8 +39,7 @@ def edge_detection(image):
 
 
 def get_longest_edge(edged):
-    _, connected_components, stats, _ = cv2.connectedComponentsWithStats(edged,
-                                                                         connectivity=8)
+    _, connected_components, stats, _ = cv2.connectedComponentsWithStats(edged, connectivity=8)
     label_of_longest_connected_component = stats[1:, 4].argmax() + 1
     connected_components[connected_components != label_of_longest_connected_component] = 0
     connected_components[connected_components == label_of_longest_connected_component] = 100
@@ -59,10 +58,8 @@ def get_polygon_around_contour(contour):
 
 def simplify_edges(edges):
     total_area = get_polygon_area(edges.reshape(-1, 2))
-    for epsilon in np.arange(0, 20, .5):
-        if ((len(edges) > 4)
-                and (get_polygon_area(edges.reshape(-1, 2)) > total_area * .99)
-        ):
+    for epsilon in np.arange(0, 20, 0.5):
+        if (len(edges) > 4) and (get_polygon_area(edges.reshape(-1, 2)) > total_area * 0.99):
             edges = rdp(edges, epsilon=epsilon)
         else:
             break

@@ -1,6 +1,7 @@
 import pandas as pd
-from ...utils import get_logger
+
 from ..base import BaseReceipt
+from ...utils import get_logger
 
 logger = get_logger(__file__)
 
@@ -12,18 +13,16 @@ def parse_vat(receipt: BaseReceipt):
         if vat_value:
             receipt.vat_value = vat_value
             return vat_value
-    logger.warning('could not find vat')
+    logger.warning("could not find vat")
 
 
 def parse_vat_from_table(receipt: BaseReceipt):
-    vat_value = receipt.df_values.loc[receipt.df_values['CLASS'] == 'VAT_TABLE',
-                                      'text2'].sum()
+    vat_value = receipt.df_values.loc[receipt.df_values["CLASS"] == "VAT_TABLE", "text2"].sum()
     if pd.notnull(vat_value) and (vat_value > 0):
         return int(vat_value)
 
 
 def parse_vat_in_front(receipt: BaseReceipt):
-    vat_value = receipt.df_values.loc[receipt.df_values['CLASS'] == 'VAT_LINE',
-                                      'text2'].sum()
+    vat_value = receipt.df_values.loc[receipt.df_values["CLASS"] == "VAT_LINE", "text2"].sum()
     if pd.notnull(vat_value) and (vat_value > 0):
         return int(vat_value)

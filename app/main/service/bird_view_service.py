@@ -20,5 +20,5 @@ def get_bird_view(image_content: bytes, points: List[List[int]]) -> bytes:
     jpg_as_np = np.frombuffer(image_content, dtype=np.uint8)
     image = cv2.imdecode(jpg_as_np, flags=1)
     bird_view_image_array = four_point_transform(image, np.array(points))
-    bird_view_image = cv2.imencode('.jpg', bird_view_image_array)[1]
+    bird_view_image = cv2.imencode(".jpg", bird_view_image_array)[1]
     return bird_view_image

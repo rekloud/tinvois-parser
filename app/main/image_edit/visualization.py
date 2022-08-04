@@ -3,7 +3,7 @@ import imutils
 import numpy as np
 
 
-def draw_contours(image, contour, include_points=False, title='Outline'):
+def draw_contours(image, contour, include_points=False, title="Outline"):
     ratio = image.shape[0] / 650.0
     contour = (contour / ratio).astype(np.int32)
     image = imutils.resize(image, height=650)
@@ -14,5 +14,3 @@ def draw_contours(image, contour, include_points=False, title='Outline'):
     cv2.imshow(title, image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-
-

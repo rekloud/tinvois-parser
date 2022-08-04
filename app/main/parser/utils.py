@@ -1,6 +1,8 @@
-import yaml
 from difflib import SequenceMatcher
 from heapq import nlargest as _nlargest
+
+import yaml
+
 from ..config import PARSER_CONFIG_FILE
 from ..utils.log import get_logger
 
@@ -8,7 +10,7 @@ logger = get_logger(__name__)
 
 
 def read_config(config=PARSER_CONFIG_FILE):
-    with open(config, 'r') as stream:
+    with open(config, "r") as stream:
         try:
             docs = yaml.safe_load(stream)
             return docs
@@ -38,15 +40,15 @@ def get_close_matches_indexes(word, possibilities, n=3, cutoff=0.6):
     for idx, x in enumerate(possibilities):
         s.set_seq1(x)
         # To ensure getting first match when it is a total match
-        if n == 1 and \
-           s.real_quick_ratio() >= .99 and \
-           s.quick_ratio() >= .99 and \
-           s.ratio() >= .99:
+        if (
+            n == 1
+            and s.real_quick_ratio() >= 0.99
+            and s.quick_ratio() >= 0.99
+            and s.ratio() >= 0.99
+        ):
             return [idx]
 
-        if s.real_quick_ratio() >= cutoff and \
-           s.quick_ratio() >= cutoff and \
-           s.ratio() >= cutoff:
+        if s.real_quick_ratio() >= cutoff and s.quick_ratio() >= cutoff and s.ratio() >= cutoff:
             result.append((s.ratio(), idx))
 
     # Move the best scorers to head of list
