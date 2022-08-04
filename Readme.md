@@ -25,7 +25,7 @@ for free, it is almost free. So let's make it really good.
 In the following steps
 
 * Sending the image to google Cloud Vision API to extract text
-* Puting the results in a pandas DataFrame (I am a data scientist, I love DataFrames :))
+* Putting the results in a pandas DataFrame (I am a data scientist, I love DataFrames :))
 * Preprocess the results as follows
     - Lower case all the strings
     - Join some words that we know come after each other and are meaningful together
@@ -34,7 +34,7 @@ In the following steps
         "VAT", "VALUE" (strings specifying a value) and "OTHER"
     - Convert the values to float and keep them in another DataFrame
     - Detect the rotation and rotate the coordinates back to vertical
-    - For each value, extract a feature set. Namely tokens that appear in front of it,
+    - For each value, extract a feature set. Namely, tokens that appear in front of it,
       behind it, or on top of it.
 * Extracting information as follows
     - Date: get the date string via string matching. I just look for the first match I find.
@@ -46,8 +46,8 @@ In the following steps
         other countries
 
     - Merchant name: I listed the most common merchants in Germany. It first tries to string
-        match one from that list. If non of them found, it uses simply the first line in
-        the image. Turns out it works fine :)
+        match one from that list. If none of them found, it uses simply the first line in
+        the image. Turns out it works fine.
 
 ## Sample result
 
@@ -81,7 +81,7 @@ You can start the API locally either via python or docker desktop.
 
 ### Using python
 
-* Put the google_auth.json in app/google_auth folder
+* Put the google_auth.json in `app/google_auth folder`
 * Install requirements
 * Put an environmental variable called SERVER_TO_SERVER_TOKEN in your system containing a
   custom string. It will be the authorization token for calling the API
@@ -109,7 +109,7 @@ docker run --name tinvois-parser -d \
 #### Option 2
 
 * Base64 encode the content of google_auth.json
-* Run this commend (you might need to remove "\\"'s and put the whole command in one line in Windows)
+* Run this command (you might need to remove "\\"'s and put the whole command in one line in Windows)
 ```
 docker run --name tinvois-parser -d \
     -p 5001:5001 \
